@@ -12,10 +12,32 @@ body {
 }
 
 header {
-  background-color: #4CAF50;
   color: white;
   padding: 20px 0;
   text-align: center;
+
+  background: linear-gradient(
+    270deg,
+    #0a1a3f,   /* navy blue */
+    #5a0f14,   /* dark red */
+    #000000,   /* black */
+    #0a1a3f    /* navy blue */
+  );
+
+  background-size: 600% 600%;
+  animation: bannerGradient 10s ease infinite;
+}
+
+@keyframes bannerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 header nav a {
