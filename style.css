@@ -9,20 +9,18 @@ body {
   background: blue;
 }
 .box1 {
-  height: 15vh;
   width: 14vw;
   background: black;
   color: white;
   left: 5vw;
-  top: 15vh;
+  margin-top: 5vh;
   border-radius:10px
 }
 .box2 {
-  height: 15vh;
   width: 14vw;
   background: black;
   color: white;
   left: 35vw;
-  top: 35vh;
+  margin-top: 5vh;
   border-radius:10px
 }
