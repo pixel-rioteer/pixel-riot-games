@@ -32,8 +32,8 @@ body {
 .sidebar {
   width: 14vw;
   height: 100vh;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   background: black;
   position: fixed;
 }
