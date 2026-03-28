@@ -37,4 +37,5 @@ body {
   background: black;
   justify-items: center;
   align-text: center;
+  position: fixed;
 }
