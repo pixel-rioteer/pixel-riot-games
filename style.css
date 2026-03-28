@@ -10,7 +10,6 @@ body {
 }
 .box1 {
   width: 14vw;
-  display: flex;
   background: black;
   color: white;
   left: 5vw;
@@ -19,7 +18,6 @@ body {
 }
 .box2 {
   width: 14vw;
-  display: flex;
   background: black;
   color: white;
   left: 35vw;
