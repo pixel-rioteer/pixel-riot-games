@@ -9,7 +9,6 @@ body {
   background: blue;
 }
 .box1 {
-  height: 10vh;
   background: black;
   color: white;
   left: 5vw;
@@ -17,7 +16,6 @@ body {
   border-radius:10px
 }
 .box2 {
-  width: 14vw;
   background: black;
   color: white;
   left: 35vw;
