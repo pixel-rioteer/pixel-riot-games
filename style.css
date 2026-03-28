@@ -14,7 +14,7 @@ body {
   background: black;
   color: white;
   left: 5vw;
-  top: 11vh;
+  top: 15vh;
   border-radius:10px
 }
 .box2 {
@@ -23,6 +23,6 @@ body {
   background: black;
   color: white;
   left: 35vw;
-  top: 11vh;
+  top: 35vh;
   border-radius:10px
 }
