@@ -1,12 +1,12 @@
 body {
   font-family: Arial, Sans-sheriff;
-  padding: 2px;
+  padding: 1px
 }
 .title {
   height: 10vh;
-  width: 100vw;
+  width: 84vw;
   top: 0px;
-  left: 0px;
+  left: 1%;
   background: black;
   color: white;
   border-rdius: 10px;
@@ -16,7 +16,7 @@ body {
   width: 14vw;
   background: black;
   color: white;
-  left: 5vw;
+  left: 1%;
   top: 5vh;
   border-radius:10px;
   padding: 1px;
@@ -25,7 +25,7 @@ body {
   width: 14vw;
   background: black;
   color: white;
-  left: 35vw;
+  left: 1%;
   margin-top: 5px;
   border-radius:10px;
   padding: 1px;
