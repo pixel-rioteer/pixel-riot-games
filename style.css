@@ -13,6 +13,16 @@ body {
   width: 14vw;
   background: black;
   color: white;
-  left: 5px;
+  left: 5vw;
   top: 11vh;
+  border-radius:10px
+}
+.box2 {
+  height: 15vh;
+  width: 14vw;
+  background: black;
+  color: white;
+  left: 35vw;
+  top: 11vh;
+  border-radius:10px
 }
