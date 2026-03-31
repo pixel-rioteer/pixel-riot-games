@@ -48,6 +48,7 @@ body {
   border: solid white 2px;
   border-radius: 10px 10px 5px 5px;
   color: white;
+  justify-content: center;
 }
 .games {
   width: 12vw;
