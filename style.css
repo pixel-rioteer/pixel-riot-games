@@ -46,6 +46,7 @@ body {
   background: black;
   border: solid white, 2px;
   border-radius: 10px 10px 5px 5px;
+  color: white;
 }
 .games {
   width: 12vw;
@@ -55,4 +56,5 @@ body {
   background: black;
   border: solid white, 2px;
   border-radius: 5px;
+  color: white;
 }
