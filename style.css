@@ -38,3 +38,12 @@ body {
   background: black;
   position: fixed;
 }
+.sidetitle {
+  height: 12vw;
+  height: 19vh;
+  top: 1%;
+  right: 1%;
+  background: black;
+  border: solid white, 2px;
+  border-radius: 10px 10px 5px 5px;
+}
