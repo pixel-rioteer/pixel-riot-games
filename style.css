@@ -40,6 +40,7 @@ body {
 }
 .sidetitle {
   position: fixed;
+  width: 13vw;
   top: 1%;
   right: 1%;
   background: black;
@@ -49,6 +50,16 @@ body {
   align-items: center;
 }
 .games {
+  width: 12vw;
+  height: 9vh;
+  top: 14%;
+  right: 1%;
+  background: black;
+  border: solid white, 2px;
+  border-radius: 5px;
+  color: white;
+}
+.minecraft {
   width: 12vw;
   height: 9vh;
   top: 14%;
