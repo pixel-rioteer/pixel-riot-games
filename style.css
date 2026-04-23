@@ -50,6 +50,7 @@ body {
   align-items: center;
 }
 .games {
+  position: fixed;
   width: 12vw;
   height: 9vh;
   top: 14%;
