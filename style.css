@@ -44,6 +44,8 @@ body {
 }
 
 
+
+
 .sidetitle,
 .panel,
 .menu-list > a,
@@ -52,13 +54,19 @@ body {
 .submenu-items a {
 
 
+
 .sidetitle,
 .panel,
 .menu-list > a,
 .submenu summary,
+
+.submenu-items a,
+.partner-item {
+
 .submenu-items a {
 
 .sidetitle {
+
 
 
   width: 100%;
@@ -76,6 +84,18 @@ body {
 
 .sidetitle {
   padding: 8px;
+
+}
+
+.sidebar-content {
+  margin-top: 18px;
+}
+
+.panel {
+  margin-top: 12px;
+  padding: 8px;
+}
+
 
 }
 
@@ -117,12 +137,19 @@ body {
 
 
 
+
 .menu-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-top: 10px;
 }
+
+
+.menu-list > a,
+.submenu summary,
+.submenu-items a,
+.partner-item {
 
 
 .menu-list > a,
@@ -133,10 +160,13 @@ body {
 .submenu summary,
 
 .submenu-items a {
+
   display: block;
   text-decoration: none;
   padding: 6px;
 }
+
+
 
 
 .submenu-toggle {
@@ -187,6 +217,10 @@ body {
 
 .menu-list > a:hover,
 .submenu summary:hover,
+
+.submenu-items a:hover,
+.partner-item:hover {
+
 .submenu-items a:hover {
 
 .menu-list a {
@@ -199,6 +233,7 @@ body {
 }
 
 .menu-list a:hover {
+
 
 
   background: #1d1d1d;
