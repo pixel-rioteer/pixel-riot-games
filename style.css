@@ -1,72 +1,86 @@
 body {
-  font-family: Arial, Sans-sheriff;
-  padding: 1px
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #111;
 }
+
+.content {
+  padding: 12px;
+  margin-right: 17vw;
+}
+
 .title {
-  height: 10vh;
-  width: 84vw;
-  top: 0px;
-  left: 1%;
+  min-height: 10vh;
+  width: 100%;
   background: black;
   color: white;
-  border-rdius: 10px;
-  justify-items: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.box1 {
-  width: 14vw;
-  background: black;
-  color: white;
-  left: 1%;
-  top: 5vh;
-  border-radius:10px;
-  padding: 1px;
-}
+
+.box1,
 .box2 {
-  width: 14vw;
+  width: 18rem;
   background: black;
   color: white;
-  left: 1%;
-  margin-top: 5px;
-  border-radius:10px;
-  padding: 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
 }
+
 .sidebar {
-  width: 14vw;
+  width: 15vw;
+  min-width: 180px;
   height: 100vh;
   top: 0;
   right: 0;
   background: black;
   position: fixed;
+  padding: 8px;
+  box-sizing: border-box;
 }
+
 .sidetitle {
-  position: fixed;
-  width: 13vw;
-  top: 1%;
-  right: 1%;
+  width: 100%;
   background: black;
   border: solid white 2px;
   border-radius: 10px 10px 5px 5px;
   color: white;
-  align-items: center;
+  text-align: center;
+  padding: 8px;
+  box-sizing: border-box;
 }
-.games {
-  position: fixed;
-  width: 12vw;
-  height: 9vh;
-  top: 14%;
-  right: 1%;
+
+.panel {
+  width: 100%;
+  margin-top: 14px;
   background: black;
-  border: solid white, 2px;
+  border: solid white 2px;
   border-radius: 5px;
   color: white;
+  padding: 10px;
+  box-sizing: border-box;
 }
-.minecraft {
-  width: 12vw;
-  height: 9vh;
-  top: 14%;
-  right: 1%;
-  background: black;
-  border: solid white, 2px;
-  border-radius: 5px;
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.menu-list a {
   color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+}
+
+.menu-list a:hover {
+  background: #1d1d1d;
 }
