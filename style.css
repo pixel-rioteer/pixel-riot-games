@@ -43,23 +43,48 @@ body {
   box-sizing: border-box;
 }
 
+
+
+
+.sidetitle,
+.panel,
+.menu-list > a,
+.submenu,
+.submenu-toggle,
+.submenu-items a {
+
+
+
 .sidetitle,
 .panel,
 .menu-list > a,
 .submenu summary,
+
 .submenu-items a,
 .partner-item {
+
+.submenu-items a {
+
+.sidetitle {
+
+
+
   width: 100%;
   background: black;
   border: solid white 2px;
   border-radius: 10px 10px 5px 5px;
   color: white;
   text-align: center;
+
+
+
+
   box-sizing: border-box;
 }
 
 .sidetitle {
   padding: 8px;
+
 }
 
 .sidebar-content {
@@ -71,6 +96,48 @@ body {
   padding: 8px;
 }
 
+
+}
+
+.sidebar-content {
+  margin-top: 18px;
+}
+
+.panel {
+  margin-top: 12px;
+  padding: 8px;
+}
+
+}
+
+.sidebar-content {
+  margin-top: 18px;
+}
+
+.panel {
+  margin-top: 12px;
+  padding: 8px;
+}
+
+
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.panel {
+  width: 100%;
+  margin-top: 14px;
+  background: black;
+  border: solid white 2px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+
+
 .menu-list {
   display: flex;
   flex-direction: column;
@@ -78,14 +145,55 @@ body {
   margin-top: 10px;
 }
 
+
 .menu-list > a,
 .submenu summary,
 .submenu-items a,
 .partner-item {
+
+
+.menu-list > a,
+.submenu-toggle,
+
+
+.menu-list > a,
+.submenu summary,
+
+.submenu-items a {
+
   display: block;
   text-decoration: none;
   padding: 6px;
 }
+
+
+
+
+.submenu-toggle {
+  cursor: pointer;
+  font: inherit;
+}
+
+.submenu {
+  overflow: hidden;
+  max-height: 38px;
+  transition: max-height 0.25s ease;
+}
+
+.submenu-items {
+  margin-top: 8px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.submenu.open {
+  max-height: 260px;
+}
+
+.menu-list > a:hover,
+.submenu-toggle:hover,
+.submenu-items a:hover {
 
 .submenu {
   width: 100%;
@@ -109,7 +217,24 @@ body {
 
 .menu-list > a:hover,
 .submenu summary:hover,
+
 .submenu-items a:hover,
 .partner-item:hover {
+
+.submenu-items a:hover {
+
+.menu-list a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+}
+
+.menu-list a:hover {
+
+
+
   background: #1d1d1d;
 }
