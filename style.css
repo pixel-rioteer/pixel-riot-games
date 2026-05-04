@@ -43,13 +43,39 @@ body {
   box-sizing: border-box;
 }
 
+
+.sidetitle,
+.panel,
+.menu-list > a,
+.submenu summary,
+.submenu-items a {
+
 .sidetitle {
+
   width: 100%;
   background: black;
   border: solid white 2px;
   border-radius: 10px 10px 5px 5px;
   color: white;
   text-align: center;
+
+  box-sizing: border-box;
+}
+
+.sidetitle {
+  padding: 8px;
+}
+
+.sidebar-content {
+  margin-top: 18px;
+}
+
+.panel {
+  margin-top: 12px;
+  padding: 8px;
+}
+
+
   padding: 8px;
   box-sizing: border-box;
 }
@@ -65,12 +91,46 @@ body {
   box-sizing: border-box;
 }
 
+
 .menu-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-top: 10px;
 }
+
+
+.menu-list > a,
+.submenu summary,
+.submenu-items a {
+  display: block;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.submenu {
+  width: 100%;
+}
+
+.submenu summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.submenu summary::-webkit-details-marker {
+  display: none;
+}
+
+.submenu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.menu-list > a:hover,
+.submenu summary:hover,
+.submenu-items a:hover {
 
 .menu-list a {
   color: white;
@@ -82,5 +142,6 @@ body {
 }
 
 .menu-list a:hover {
+
   background: #1d1d1d;
 }
