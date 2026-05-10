@@ -5,6 +5,10 @@ body {
   color: white;
 }
 
+a {
+  color: white;
+}
+
 .content {
   padding: 20px;
   margin-right: 17vw;
