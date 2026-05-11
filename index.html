@@ -3,131 +3,277 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PIXEL-RIOT</title>
+  <title>PIXEL-RIOT Gaming Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+  <section class="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-blue-900">
+    <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400&auto=format&fit=crop')] bg-cover bg-center"></div>
 
-  <nav class="navbar">
-    <h1 class="logo">PIXEL-RIOT</h1>
+    <div class="relative z-10 text-center px-6">
+      <h1 class="text-6xl md:text-8xl font-black tracking-tight bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">PIXEL-RIOT</h1>
+      <p class="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Reviews, guides, tips, tricks, esports news, Minecraft content, and exclusive gaming partnerships.</p>
 
-    <ul>
-      <li><a href="reviews.html">Reviews</a></li>
-      <li><a href="minecraft.html">Minecraft</a></li>
-      <li><a href="guides.html">Guides</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="forums.html">Forums</a></li>
-      <li><a href="xynex.html">Xynex</a></li>
-    </ul>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#reviews" class="px-8 py-4 rounded-2xl bg-cyan-500 hover:bg-cyan-400 transition-all text-black font-bold shadow-2xl shadow-cyan-500/40 inline-block">Explore Reviews</a>
+        <a href="#minecraft" class="px-8 py-4 rounded-2xl border border-purple-500 hover:bg-purple-600/20 transition-all font-semibold inline-block">Minecraft Hub</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+      <div class="text-2xl font-black text-cyan-400">PIXEL-RIOT</div>
+      <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
+        <a href="#reviews" class="hover:text-cyan-400 transition">Reviews</a>
+        <a href="#guides" class="hover:text-cyan-400 transition">Guides</a>
+        <a href="#minecraft" class="hover:text-cyan-400 transition">Minecraft</a>
+        <a href="#news" class="hover:text-cyan-400 transition">News</a>
+        <a href="#esports" class="hover:text-cyan-400 transition">Esports</a>
+        <a href="#forums" class="hover:text-cyan-400 transition">Forums</a>
+        <a href="#profiles" class="hover:text-cyan-400 transition">Profiles</a>
+        <a href="#partnership" class="hover:text-cyan-400 transition">Xynex</a>
+      </div>
+    </div>
   </nav>
 
-  <header class="hero">
-    <div class="overlay"></div>
-
-    <div class="hero-content">
-      <h1>PIXEL-RIOT</h1>
-      <p>
-        Reviews, guides, Minecraft tips, esports news, and community content.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="reviews.html" class="btn primary">Explore Reviews</a>
-        <a href="minecraft.html" class="btn secondary">Minecraft Hub</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="games-section">
-    <h2>Featured Games</h2>
-
-    <div class="game-grid">
-      <div class="game-card">
-        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop" alt="Forza Horizon 5">
-        <h3>Forza Horizon 5</h3>
-        <p>Racing</p>
-        <span>9.4/10</span>
-        <a href="forza-review.html" class="card-btn">Read Review</a>
+  <main>
+    <section id="reviews" class="max-w-7xl mx-auto px-6 py-24">
+      <div class="flex items-center justify-between mb-10">
+        <div>
+          <h2 class="text-5xl font-black">Featured Reviews</h2>
+          <p class="text-gray-400 mt-2">Top-rated games this month.</p>
+        </div>
       </div>
 
-      <div class="game-card">
-        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="Warzone">
-        <h3>Call of Duty: Warzone</h3>
-        <p>FPS</p>
-        <span>9.1/10</span>
-        <a href="warzone-review.html" class="card-btn">Read Review</a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <article class="group rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
+          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-2xl font-bold">Forza Horizon 5</h3>
+              <span class="bg-cyan-500 text-black px-3 py-1 rounded-xl font-black">9.4</span>
+            </div>
+            <p class="text-gray-400 mt-2">Racing</p>
+            <p class="mt-4 text-gray-300 leading-relaxed">Deep mechanics, stunning visuals, and highly competitive gameplay make this one of the best releases this year.</p>
+            <a href="#reviews" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Review Page</a>
+          </div>
+        </article>
+
+        <article class="group rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
+          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-2xl font-bold">Call of Duty: Warzone</h3>
+              <span class="bg-cyan-500 text-black px-3 py-1 rounded-xl font-black">9.1</span>
+            </div>
+            <p class="text-gray-400 mt-2">FPS</p>
+            <p class="mt-4 text-gray-300 leading-relaxed">Deep mechanics, stunning visuals, and highly competitive gameplay make this one of the best releases this year.</p>
+            <a href="#reviews" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Review Page</a>
+          </div>
+        </article>
+
+        <article class="group rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
+          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-2xl font-bold">Elden Ring</h3>
+              <span class="bg-cyan-500 text-black px-3 py-1 rounded-xl font-black">9.7</span>
+            </div>
+            <p class="text-gray-400 mt-2">RPG</p>
+            <p class="mt-4 text-gray-300 leading-relaxed">Deep mechanics, stunning visuals, and highly competitive gameplay make this one of the best releases this year.</p>
+            <a href="#reviews" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Review Page</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="guides" class="bg-zinc-950 py-24 border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl font-black mb-10">Tips, Tricks &amp; Guides</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <article class="p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 to-black hover:border-cyan-500 transition-all">
+            <div class="text-cyan-400 text-sm font-bold tracking-widest uppercase">Strategy Guide</div>
+            <h3 class="text-2xl font-bold mt-3">Best PvP Settings for Competitive Play</h3>
+            <p class="mt-4 text-gray-400 leading-relaxed">Learn pro-level strategies, hidden techniques, advanced settings, and performance boosts.</p>
+            <a href="#guides" class="mt-6 inline-block px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-all">View Full Guide</a>
+          </article>
+          <article class="p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 to-black hover:border-cyan-500 transition-all">
+            <div class="text-cyan-400 text-sm font-bold tracking-widest uppercase">Strategy Guide</div>
+            <h3 class="text-2xl font-bold mt-3">How to Increase FPS on Low-End PCs</h3>
+            <p class="mt-4 text-gray-400 leading-relaxed">Learn pro-level strategies, hidden techniques, advanced settings, and performance boosts.</p>
+            <a href="#guides" class="mt-6 inline-block px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-all">View Full Guide</a>
+          </article>
+          <article class="p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 to-black hover:border-cyan-500 transition-all">
+            <div class="text-cyan-400 text-sm font-bold tracking-widest uppercase">Strategy Guide</div>
+            <h3 class="text-2xl font-bold mt-3">Top 10 Hidden Features in Minecraft</h3>
+            <p class="mt-4 text-gray-400 leading-relaxed">Learn pro-level strategies, hidden techniques, advanced settings, and performance boosts.</p>
+            <a href="#guides" class="mt-6 inline-block px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-all">View Full Guide</a>
+          </article>
+          <article class="p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 to-black hover:border-cyan-500 transition-all">
+            <div class="text-cyan-400 text-sm font-bold tracking-widest uppercase">Strategy Guide</div>
+            <h3 class="text-2xl font-bold mt-3">Best Builds and Cars in Forza Horizon 5</h3>
+            <p class="mt-4 text-gray-400 leading-relaxed">Learn pro-level strategies, hidden techniques, advanced settings, and performance boosts.</p>
+            <a href="#guides" class="mt-6 inline-block px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-all">View Full Guide</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="minecraft" class="max-w-7xl mx-auto px-6 py-24">
+      <div class="flex items-center gap-4 mb-10">
+        <div class="w-4 h-16 bg-green-500 rounded-full"></div>
+        <div>
+          <h2 class="text-5xl font-black">Minecraft Hub</h2>
+          <p class="text-gray-400 mt-2">Commands, tips &amp; tricks, Xynex partnership content, and server reviews.</p>
+        </div>
       </div>
 
-      <div class="game-card">
-        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop" alt="Elden Ring">
-        <h3>Elden Ring</h3>
-        <p>RPG</p>
-        <span>9.7/10</span>
-        <a href="eldenring-review.html" class="card-btn">Read Review</a>
-      </div>
-    </div>
-  </section>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="rounded-3xl p-8 bg-gradient-to-br from-green-900/40 to-black border border-green-500/20">
+          <h3 class="text-3xl font-bold mb-6 text-green-400">Popular Commands</h3>
+          <div class="space-y-4">
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/gamemode creative</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/tp @p 100 64 100</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/give @p diamond_sword</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/weather clear</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/time set day</div>
+          </div>
+        </div>
 
-  <section class="minecraft-section">
-    <h2>Minecraft Hub</h2>
-
-    <div class="minecraft-grid">
-      <div class="minecraft-box">
-        <h3>Commands</h3>
-        <ul>
-          <li>/gamemode creative</li>
-          <li>/give @p diamond_sword</li>
-          <li>/weather clear</li>
-          <li>/time set day</li>
-        </ul>
+        <div class="rounded-3xl p-8 bg-gradient-to-br from-emerald-900/30 to-black border border-emerald-500/20">
+          <h3 class="text-3xl font-bold mb-6 text-emerald-400">Minecraft Tips &amp; Tricks</h3>
+          <div class="space-y-5 text-gray-300 leading-relaxed">
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/10">Use water buckets to survive high falls and move faster through caves.</div>
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/10">Always carry torches and extra food when mining deep underground.</div>
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/10">Combine enchantments using anvils to build powerful endgame gear.</div>
+          </div>
+        </div>
       </div>
 
-      <div class="minecraft-box">
-        <h3>Tips & Tricks</h3>
-        <p>Use water buckets to survive high falls.</p>
-        <p>Combine enchantments with anvils.</p>
-        <p>Always carry food while mining.</p>
+      <div id="partnership" class="mt-16 rounded-[40px] p-10 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-500/30">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div>
+            <div class="text-cyan-400 uppercase tracking-[0.3em] font-bold text-sm">Official Partnership</div>
+            <h2 class="text-5xl font-black mt-4">Powered By Xynex</h2>
+            <p class="mt-6 text-gray-300 max-w-2xl text-lg leading-relaxed">Xynex partners with PIXEL-RIOT to bring exclusive Minecraft events, premium server showcases, community tournaments, and advanced gaming content.</p>
+            <a href="#partnership" class="mt-8 inline-block px-8 py-4 rounded-2xl bg-cyan-500 text-black font-black hover:bg-cyan-400 transition-all shadow-xl shadow-cyan-500/30">Open Xynex Page</a>
+          </div>
+          <img src="https://files.catbox.moe/placeholderxynex.png" alt="Xynex Logo" class="w-80 drop-shadow-[0_0_50px_rgba(34,211,238,0.6)]" />
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="xynex-section">
-    <div class="xynex-content">
+      <div class="mt-20">
+        <h3 class="text-4xl font-black mb-8">Server Reviews</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-green-400 transition-all">
+            <div class="flex items-center justify-between gap-4"><h4 class="text-2xl font-bold">Xynex Network</h4><span class="bg-green-500 text-black px-3 py-1 rounded-xl font-black">9.9/10</span></div>
+            <p class="mt-5 text-gray-300 leading-relaxed">One of the best Minecraft servers for competitive PvP, events, custom content, and community tournaments.</p>
+            <a href="#minecraft" class="mt-6 block text-center w-full py-3 rounded-2xl bg-green-500 text-black font-bold hover:bg-green-400 transition-all">Read Review</a>
+          </article>
+          <article class="rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-green-400 transition-all">
+            <div class="flex items-center justify-between gap-4"><h4 class="text-2xl font-bold">BlockVerse SMP</h4><span class="bg-green-500 text-black px-3 py-1 rounded-xl font-black">9.5/10</span></div>
+            <p class="mt-5 text-gray-300 leading-relaxed">Amazing survival economy and active community.</p>
+            <a href="#minecraft" class="mt-6 block text-center w-full py-3 rounded-2xl bg-green-500 text-black font-bold hover:bg-green-400 transition-all">Read Review</a>
+          </article>
+          <article class="rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-green-400 transition-all">
+            <div class="flex items-center justify-between gap-4"><h4 class="text-2xl font-bold">SkyRaid Network</h4><span class="bg-green-500 text-black px-3 py-1 rounded-xl font-black">8.9/10</span></div>
+            <p class="mt-5 text-gray-300 leading-relaxed">Fast-paced PvP with balanced kits and smooth servers.</p>
+            <a href="#minecraft" class="mt-6 block text-center w-full py-3 rounded-2xl bg-green-500 text-black font-bold hover:bg-green-400 transition-all">Read Review</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="bg-zinc-950 border-y border-white/10 py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl font-black mb-10">Gaming News</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="rounded-3xl overflow-hidden border border-white/10 bg-black/40"><div class="h-56 bg-[url('https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center"></div><div class="p-6"><div class="text-cyan-400 text-sm font-bold uppercase">Breaking News</div><h3 class="text-2xl font-bold mt-3">Xynex Announces Massive PvP Tournament</h3><p class="mt-4 text-gray-400">Thousands of players are expected to compete in Xynex's biggest Minecraft tournament yet.</p></div></article>
+          <article class="rounded-3xl overflow-hidden border border-white/10 bg-black/40"><div class="h-56 bg-[url('https://images.unsplash.com/photo-1511882150382-421056c89033?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center"></div><div class="p-6"><div class="text-purple-400 text-sm font-bold uppercase">Update</div><h3 class="text-2xl font-bold mt-3">Top 5 Biggest Upcoming Games</h3><p class="mt-4 text-gray-400">A look at the biggest RPG launches and gameplay reveals coming this year.</p></div></article>
+          <article class="rounded-3xl overflow-hidden border border-white/10 bg-black/40"><div class="h-56 bg-[url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center"></div><div class="p-6"><div class="text-green-400 text-sm font-bold uppercase">Minecraft</div><h3 class="text-2xl font-bold mt-3">Best Minecraft Mods of the Year</h3><p class="mt-4 text-gray-400">Performance mods, shaders, new mobs, and survival expansion packs dominate the scene.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="esports" class="max-w-7xl mx-auto px-6 py-24">
+      <h2 class="text-5xl font-black mb-10">Esports Arena</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <article class="rounded-3xl p-10 bg-gradient-to-br from-purple-900/40 to-black border border-purple-500/20">
+          <div class="text-purple-400 uppercase font-bold tracking-widest text-sm">Live Tournament</div>
+          <h3 class="text-4xl font-black mt-4">Xynex Championship Series</h3>
+          <p class="mt-6 text-gray-300 leading-relaxed text-lg">Watch elite Minecraft PvP players compete in competitive events, ranked battles, and seasonal championships.</p>
+          <a href="#esports" class="mt-8 inline-block px-8 py-4 rounded-2xl bg-purple-500 font-black hover:bg-purple-400 transition-all">Open Esports Page</a>
+        </article>
+        <article class="rounded-3xl p-10 bg-gradient-to-br from-cyan-900/40 to-black border border-cyan-500/20">
+          <div class="text-cyan-400 uppercase font-bold tracking-widest text-sm">Team Rankings</div>
+          <div class="space-y-5 mt-8">
+            <div class="flex items-center justify-between p-5 rounded-2xl bg-black/40 border border-white/10"><span class="font-bold">#1 Nova Esports</span><span class="text-cyan-400">2500 Points</span></div>
+            <div class="flex items-center justify-between p-5 rounded-2xl bg-black/40 border border-white/10"><span class="font-bold">#2 Xynex Elite</span><span class="text-cyan-400">2330 Points</span></div>
+            <div class="flex items-center justify-between p-5 rounded-2xl bg-black/40 border border-white/10"><span class="font-bold">#3 Pixel Raiders</span><span class="text-cyan-400">2190 Points</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="forums" class="bg-zinc-950 border-y border-white/10 py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl font-black mb-10">Community Forums</h2>
+        <div class="space-y-6">
+          <article class="rounded-3xl border border-white/10 bg-black/40 p-8 hover:border-cyan-400 transition-all"><h3 class="text-2xl font-bold">Minecraft Survival Discussion</h3><p class="mt-4 text-gray-400">Talk about survival strategies, base building, farms, and SMP gameplay.</p></article>
+          <article class="rounded-3xl border border-white/10 bg-black/40 p-8 hover:border-purple-400 transition-all"><h3 class="text-2xl font-bold">Gaming Setup &amp; FPS Optimization</h3><p class="mt-4 text-gray-400">Share PC setups, performance tweaks, graphics settings, and benchmark results.</p></article>
+          <article class="rounded-3xl border border-white/10 bg-black/40 p-8 hover:border-green-400 transition-all"><h3 class="text-2xl font-bold">Xynex Community Hub</h3><p class="mt-4 text-gray-400">Join discussions about Xynex events, updates, clans, PvP tournaments, and server news.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="profiles" class="max-w-7xl mx-auto px-6 py-24">
+      <h2 class="text-5xl font-black mb-10">Player Profiles</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <article class="rounded-3xl p-8 bg-gradient-to-br from-cyan-900/40 to-black border border-cyan-500/20 text-center"><div class="w-24 h-24 rounded-full bg-cyan-500 mx-auto flex items-center justify-center text-3xl font-black text-black">P</div><h3 class="text-2xl font-bold mt-6">PixelRiotUser</h3><p class="text-gray-400 mt-2">Minecraft PvP Specialist</p><div class="mt-6 text-cyan-400 font-bold">Level 78</div></article>
+        <article class="rounded-3xl p-8 bg-gradient-to-br from-purple-900/40 to-black border border-purple-500/20 text-center"><div class="w-24 h-24 rounded-full bg-purple-500 mx-auto flex items-center justify-center text-3xl font-black text-black">X</div><h3 class="text-2xl font-bold mt-6">XynexElite</h3><p class="text-gray-400 mt-2">Tournament Champion</p><div class="mt-6 text-purple-400 font-bold">Level 93</div></article>
+        <article class="rounded-3xl p-8 bg-gradient-to-br from-green-900/40 to-black border border-green-500/20 text-center"><div class="w-24 h-24 rounded-full bg-green-500 mx-auto flex items-center justify-center text-3xl font-black text-black">G</div><h3 class="text-2xl font-bold mt-6">GamingLegend</h3><p class="text-gray-400 mt-2">Strategy Guide Creator</p><div class="mt-6 text-green-400 font-bold">Level 65</div></article>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-24">
+      <div class="mb-10">
+        <h2 class="text-5xl font-black">Community Reviews &amp; Ratings</h2>
+        <p class="text-gray-400 mt-2">Public users can leave ratings, reviews, and feedback for games and Minecraft servers.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <form class="rounded-3xl border border-white/10 bg-white/5 p-8">
+          <h3 class="text-3xl font-bold mb-6">Leave A Review</h3>
+          <div class="space-y-5">
+            <input type="text" placeholder="Username" class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+            <input type="text" placeholder="Game or Server Name" class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+            <select class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400"><option>Rating</option><option>10/10</option><option>9/10</option><option>8/10</option><option>7/10</option><option>6/10</option></select>
+            <textarea rows="5" placeholder="Write your review..." class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400"></textarea>
+            <button type="submit" class="w-full py-4 rounded-2xl bg-cyan-500 text-black font-black hover:bg-cyan-400 transition-all">Submit Review</button>
+          </div>
+        </form>
+        <div class="space-y-6">
+          <article class="rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 to-black p-8"><div class="flex items-center justify-between gap-4"><h4 class="text-2xl font-bold">Xynex Network</h4><span class="bg-cyan-500 text-black px-4 py-2 rounded-xl font-black">10/10</span></div><p class="text-gray-400 mt-5 leading-relaxed">Incredible Minecraft server with custom game modes, smooth PvP, active staff, and amazing events every week.</p><div class="mt-6 text-cyan-400 font-semibold">&mdash; Review by PixelRiotUser</div></article>
+          <article class="rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 to-black p-8"><div class="flex items-center justify-between gap-4"><h4 class="text-2xl font-bold">Elden Ring</h4><span class="bg-purple-500 text-black px-4 py-2 rounded-xl font-black">9/10</span></div><p class="text-gray-400 mt-5 leading-relaxed">One of the most critically acclaimed action RPG games with incredible boss fights and open-world exploration.</p><div class="mt-6 text-purple-400 font-semibold">&mdash; Review by GamingLegend</div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-black py-10 mt-20">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <h2>Powered By Xynex</h2>
-        <p>
-          Xynex is the official Minecraft server partner of PIXEL-RIOT.
-        </p>
-
-        <a href="xynex.html" class="btn primary">Visit Xynex</a>
+        <div class="text-3xl font-black text-cyan-400">PIXEL-RIOT</div>
+        <p class="text-gray-500 mt-2">The ultimate gaming review and guide platform.</p>
       </div>
-
-      <img src="https://files.catbox.moe/placeholderxynex.png" alt="Xynex Logo">
+      <div class="flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+        <a href="#partnership">Xynex Partnership</a>
+      </div>
     </div>
-  </section>
-
-  <section class="reviews-section">
-    <h2>Community Reviews</h2>
-
-    <form class="review-form">
-      <input type="text" placeholder="Username">
-      <input type="text" placeholder="Game or Server">
-
-      <select>
-        <option>10/10</option>
-        <option>9/10</option>
-        <option>8/10</option>
-      </select>
-
-      <textarea placeholder="Write your review..."></textarea>
-
-      <button type="submit">Submit Review</button>
-    </form>
-  </section>
-
-  <footer>
-    <h2>PIXEL-RIOT</h2>
-    <p>The ultimate gaming review platform.</p>
   </footer>
-
 </body>
 </html>
