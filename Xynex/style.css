@@ -1,8 +1,9 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #1a1a1a;
-  color: white;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 a {
