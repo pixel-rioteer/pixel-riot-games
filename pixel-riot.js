@@ -124,6 +124,28 @@ const PixelRiot = (() => {
     });
   }
 
+  function setupVotifierForm() {
+    const form = document.querySelector('[data-votifier-form]');
+    if (!form) return;
+
+    const usernameInput = form.querySelector('[name="username"]');
+    const message = form.querySelector('[data-votifier-message]');
+    if (getUsername() && usernameInput) usernameInput.value = getUsername();
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const username = usernameInput.value.trim();
+      if (username.length < 3) {
+        message.textContent = 'Add your Minecraft username first.';
+        return;
+      }
+
+      setUsername(username);
+      message.textContent = 'Vote form ready. Connect this button to a backend endpoint to send the Votifier packet to Xynex.';
+      renderAccountWidgets();
+    });
+  }
+
   function escapeHtml(value) {
     return String(value)
       .replaceAll('&', '&amp;')
@@ -137,6 +159,7 @@ const PixelRiot = (() => {
     renderAccountWidgets();
     setupAccountForm();
     setupReviewForm();
+    setupVotifierForm();
   }
 
   return { init };
