@@ -2,36 +2,33 @@
 <html lang="en">
 <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Xynex | PIXEL-RIOT</title><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="style.css" /></head>
 <body class="min-h-screen bg-black text-white font-sans">
-  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/10"><div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"><a href="index.html" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a><div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300"><a href="reviews.html" class="hover:text-cyan-400">Reviews</a><a href="guides.html" class="hover:text-cyan-400">Guides</a><a href="minecraft.html" class="hover:text-cyan-400">Minecraft</a><a href="esports.html" class="hover:text-cyan-400">Esports</a><a href="account.html" class="hover:text-cyan-400">Account</a><a href="xynex.html" class="text-cyan-400">Xynex</a></div></div></nav>
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/10"><div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-5"><a href="index.html" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a><div class="flex flex-wrap justify-end gap-4 text-sm font-semibold text-gray-300"><a href="index.html" class="hover:text-cyan-400">Home</a><a href="reviews.html" class="hover:text-cyan-400">Reviews</a><a href="guides.html" class="hover:text-cyan-400">Guides</a><a href="minecraft.html" class="hover:text-cyan-400">Minecraft</a><a href="esports.html" class="hover:text-cyan-400">Esports</a><a href="account.html" class="hover:text-cyan-400">Account</a><a href="xynex.html" class="text-cyan-400">Xynex</a></div></div></nav>
   <main class="max-w-7xl mx-auto px-6 py-20">
-    <section class="rounded-[40px] border border-cyan-500/30 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 p-10"><div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"><div><p class="text-cyan-300 uppercase tracking-[0.3em] text-sm font-bold">Official Partnership</p><h1 class="text-6xl font-black mt-4">Powered By Xynex</h1><p class="text-gray-300 text-xl mt-6">Xynex partners with PIXEL-RIOT to bring Minecraft events, premium server showcases, tournaments, and community content.</p><a href="server-reviews.html#xynex" class="mt-8 inline-block px-8 py-4 rounded-2xl bg-cyan-500 text-black font-black">Read Xynex Review</a></div><img src="https://files.catbox.moe/placeholderxynex.png" alt="Xynex Logo" class="w-80 mx-auto drop-shadow-[0_0_50px_rgba(34,211,238,0.6)]" /></div></section>
+    <section class="rounded-[40px] border border-cyan-500/30 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 p-10"><div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"><div><p class="text-cyan-300 uppercase tracking-[0.3em] text-sm font-bold">Official Partnership</p><h1 class="text-6xl font-black mt-4">Powered By Xynex</h1><p class="text-gray-300 text-xl mt-6">Xynex is the featured Minecraft server partner for PIXEL-RIOT, built around competitive PvP, community events, server showcases, and tournament content.</p><div class="mt-8 flex flex-wrap gap-4"><a href="#join" class="inline-block px-8 py-4 rounded-2xl bg-cyan-500 text-black font-black">How To Join</a><a href="#vote" class="inline-block px-8 py-4 rounded-2xl border border-cyan-400 text-cyan-200 font-black">Vote For Xynex</a></div></div><img src="https://files.catbox.moe/placeholderxynex.png" alt="Xynex Logo" class="w-80 mx-auto drop-shadow-[0_0_50px_rgba(34,211,238,0.6)]" /></div></section>
 
-    <section id="vote" class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <article class="rounded-3xl border border-cyan-500/30 bg-cyan-950/20 p-8">
-        <p class="text-cyan-300 uppercase tracking-[0.3em] text-sm font-bold">Minecraft Voting</p>
-        <h2 class="text-4xl font-black mt-3">Vote For Xynex</h2>
-        <p class="text-gray-300 mt-4">Enter your Minecraft username to prepare a vote. The actual Votifier send needs a backend because browsers cannot open a raw TCP connection to the Votifier port.</p>
-        <form data-votifier-form class="mt-6 space-y-5">
-          <input name="username" data-username-field placeholder="Minecraft username" class="w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
-          <button type="submit" class="w-full rounded-2xl bg-cyan-500 text-black font-black py-4">Vote For Xynex</button>
-          <p class="text-sm text-gray-400" data-votifier-message>Ready for a backend vote endpoint.</p>
-        </form>
-      </article>
-
-      <article class="rounded-3xl border border-white/10 bg-zinc-950 p-8">
-        <h2 class="text-3xl font-black">Votifier Setup</h2>
-        <div class="mt-6 space-y-4 text-sm">
-          <div class="rounded-2xl border border-white/10 bg-black/50 p-4"><span class="block text-gray-400 uppercase tracking-widest text-xs font-bold">IP</span><code class="text-cyan-300 text-lg">185.83.152.82</code></div>
-          <div class="rounded-2xl border border-white/10 bg-black/50 p-4"><span class="block text-gray-400 uppercase tracking-widest text-xs font-bold">Port</span><code class="text-cyan-300 text-lg">8093</code></div>
-          <details class="rounded-2xl border border-white/10 bg-black/50 p-4">
-            <summary class="cursor-pointer font-bold text-cyan-300">Public Key</summary>
-            <code class="mt-4 block whitespace-pre-wrap break-all text-gray-300">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtoL01YICTbrDRkcd37wvqwzmt+9qrniAk/IUR71vao8x1YOdTs9smCks25oWsrOi0QaQEJ4KF1ChnSwYTSeFw0ZOQ57ELAw6+1NMcrx7HEt+BnvKG6tXjc882J0RvIOe8PosapC1BCyBaOJkLaoxCKMkU6UrLUNtj1Knv7SxC809n3oNjF12moXwNEZ07YbaEBtCArst1tvGYIpTf8uJ1tCcAcgGZvk9sHgD0Non+Yqy3LpiAqapJTaE+wse96QO06MLHcndJGyat10tZsBgh3K5C/RnSGRu2qdAZ/RqbzNbzH7fUe3+dELlkTzE9+04hkI0cy7y/jHb29zvCg+IMwIDAQAB</code>
-          </details>
-        </div>
-      </article>
+    <section id="join" class="mt-10 rounded-3xl border border-green-500/30 bg-green-950/20 p-8">
+      <p class="text-green-300 uppercase tracking-[0.3em] text-sm font-bold">How To Join</p>
+      <h2 class="text-4xl font-black mt-3">Join Xynex In Minecraft</h2>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5"><div class="text-green-300 font-black text-2xl">1</div><p class="mt-3 text-gray-300">Open Minecraft and choose Multiplayer from the main menu.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5"><div class="text-green-300 font-black text-2xl">2</div><p class="mt-3 text-gray-300">Select Add Server, then enter the Xynex server address.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5"><div class="text-green-300 font-black text-2xl">3</div><p class="mt-3 text-gray-300">Join, pick your mode, and start playing with the community.</p></div>
+      </div>
+      <div class="mt-6 rounded-2xl border border-green-500/30 bg-black/60 p-5"><span class="block text-gray-400 uppercase tracking-widest text-xs font-bold">Server Address</span><code class="text-3xl font-black text-green-300">play.xynex.uk</code></div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"><article class="rounded-3xl border border-white/10 bg-zinc-950 p-6"><h2 class="text-2xl font-bold">Events</h2><p class="text-gray-400 mt-3">Community tournaments and seasonal PvP brackets.</p></article><article class="rounded-3xl border border-white/10 bg-zinc-950 p-6"><h2 class="text-2xl font-bold">Server Showcases</h2><p class="text-gray-400 mt-3">Spotlights for modes, updates, builds, and community moments.</p></article><article class="rounded-3xl border border-white/10 bg-zinc-950 p-6"><h2 class="text-2xl font-bold">Creator Content</h2><p class="text-gray-400 mt-3">Guides, highlights, and ranked breakdowns from PIXEL-RIOT.</p></article></section>
+    <section id="vote" class="mt-10 rounded-3xl border border-cyan-500/30 bg-cyan-950/20 p-8">
+      <p class="text-cyan-300 uppercase tracking-[0.3em] text-sm font-bold">Minecraft Voting</p>
+      <h2 class="text-4xl font-black mt-3">Vote For Xynex</h2>
+      <p class="text-gray-300 mt-4 max-w-3xl">Enter your Minecraft username to prepare a vote. The visible vote form stays on the site; the Votifier setup details are hidden because they belong in the backend, not on the public page.</p>
+      <form data-votifier-form class="mt-6 space-y-5 max-w-2xl">
+        <input name="username" data-username-field placeholder="Minecraft username" class="w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
+        <button type="submit" class="w-full rounded-2xl bg-cyan-500 text-black font-black py-4">Vote For Xynex</button>
+        <p class="text-sm text-gray-400" data-votifier-message>Ready for a backend vote endpoint.</p>
+      </form>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"><article class="rounded-3xl border border-white/10 bg-zinc-950 p-6"><h2 class="text-2xl font-bold">Events</h2><p class="text-gray-400 mt-3">Community tournaments, ranked PvP nights, seasonal brackets, and special PIXEL-RIOT server events.</p></article><article class="rounded-3xl border border-white/10 bg-zinc-950 p-6"><h2 class="text-2xl font-bold">Server Showcases</h2><p class="text-gray-400 mt-3">Spotlights for new modes, updates, builds, maps, and the moments that make Xynex worth visiting.</p></article><article class="rounded-3xl border border-white/10 bg-zinc-950 p-6"><h2 class="text-2xl font-bold">Creator Content</h2><p class="text-gray-400 mt-3">Guides, highlights, rankings, and breakdowns from the PIXEL-RIOT community.</p></article></section>
   </main>
   <script src="pixel-riot.js"></script>
 </body>
