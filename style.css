@@ -34,25 +34,6 @@ body > * {
   z-index: 1;
 }
 
-nav a:first-child {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-nav a:first-child::before {
-  content: '';
-  width: 42px;
-  height: 42px;
-  flex: 0 0 auto;
-  border-radius: 12px;
-  background:
-    linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-    url('assets/pixel-riot-logo.png') center/cover no-repeat;
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: 0 0 24px rgba(34,211,238,0.2);
-}
-
 .site-logo-hero {
   width: min(360px, 72vw);
   margin: 0 auto 24px;
