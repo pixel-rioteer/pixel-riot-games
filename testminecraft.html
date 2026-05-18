@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Minecraft | PIXEL-RIOT</title><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="style.css" /></head>
+<body class="min-h-screen bg-black text-white font-sans">
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/10"><div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"><a href="index.html" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a><div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300"><a href="reviews.html" class="hover:text-cyan-400">Reviews</a><a href="guides.html" class="hover:text-cyan-400">Guides</a><a href="minecraft.html" class="text-cyan-400">Minecraft</a><a href="esports.html" class="hover:text-cyan-400">Esports</a><a href="xynex.html" class="hover:text-cyan-400">Xynex</a></div></div></nav>
+  <main class="max-w-7xl mx-auto px-6 py-20">
+    
+    <p class="text-green-400 uppercase tracking-[0.3em] text-sm font-bold">Minecraft Hub</p><h1 class="text-6xl font-black mt-4">Commands, Tips, Servers</h1><p class="text-gray-300 text-xl mt-5 max-w-3xl">Everything Minecraft on PIXEL-RIOT, from quick commands to PvP practice and server picks.</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-14">
+      
+      <div class="mb-10">
+        <h3 class="text-3xl font-bold mb-6 text-green-400">Commands</h3>
+        <div class="text-gray-400">We all know that one player who cant stop using them</div>
+      <div class="space-y-4">
+      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">
+  <h2>What Edition?:</h2>
 
+  <label>
+    <input type="radio" name="choice" value="option1">
+    Java
+  </label>
+
+  <label>
+    <input type="radio" name="choice" value="option2">
+    Bedrock
+  </label>
+
+  <label>
+    <input type="radio" name="choice" value="option3">
+    Another?
+  </label>
+
+  <div id="option1" style="display:none; padding:20px; margin-top:15px; background:#0f0f0f; border:2px solid #1f1f1f; border-radius:10px;">
+    <h3 style="font-size:1.875rem; font-weight:700; margin-bottom:1.5rem; color:#4ade80;">
+      Java
+    </h3>
+    <p style="color:#e5e5e5; font-size:1.1rem;">
+      This is the content for option 1.
+    </p>
+  </div>
+
+  <div id="option2" style="display:none; padding:20px; margin-top:15px; background:#0f0f0f; border:2px solid #1f1f1f; border-radius:10px;">
+    <h3 style="font-size:1.875rem; font-weight:700; margin-bottom:1.5rem; color:#4ade80;">
+      Bedrock
+    </h3>
+    <p style="color:#e5e5e5; font-size:1.1rem;">
+      This is the content for option 2.
+    </p>
+  </div>
+
+  <div id="option3" style="display:none; padding:20px; margin-top:15px; background:#0f0f0f; border:2px solid #1f1f1f; border-radius:10px;">
+    <h3 style="font-size:1.875rem; font-weight:700; margin-bottom:1.5rem; color:#4ade80;">
+      Another?
+    </h3>
+    <p style="color:#e5e5e5; font-size:1.1rem;">
+      Sorry got bored.
+    </p>
+  </div>
+
+  <script>
+    const radios = document.querySelectorAll('input[name="choice"]');
+    const boxes = document.querySelectorAll('div[id^="option"]');
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        boxes.forEach(box => box.style.display = "none");
+        document.getElementById(radio.value).style.display = "block";
+      });
+    });
+  </script>
+
+</body>
+</html>
+      </div>
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>
