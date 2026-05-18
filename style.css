@@ -16,19 +16,6 @@ body {
   position: relative;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  right: clamp(16px, 4vw, 64px);
-  bottom: clamp(16px, 4vw, 64px);
-  width: clamp(120px, 18vw, 260px);
-  aspect-ratio: 1;
-  background: url('assets/pixel-riot-logo.png') center/contain no-repeat;
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 0;
-}
-
 body > * {
   position: relative;
   z-index: 1;
