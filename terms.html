@@ -7,21 +7,21 @@
 
 <p class="copy-line">
   This is 1st thing
-  <button class="copy-btn" onclick="copyText(this)">🗐</button>
+  <button class="copy-btn" onclick="copyText(this)">🗁</button>
 </p>
 
 <p class="copy-line">
   This is 2nd thing
-  <button class="copy-btn" onclick="copyText(this)">🗐</button>
+  <button class="copy-btn" onclick="copyText(this)">🗁</button>
 </p>
 
 <script>
   function copyText(btn) {
-    const text = btn.parentElement.innerText.replace("🗐", "").trim();
+    const text = btn.parentElement.innerText.replace("🗁", "").trim();
     navigator.clipboard.writeText(text);
 
     btn.innerText = "✓";
-    setTimeout(() => btn.innerText = "🗐", 1200);
+    setTimeout(() => btn.innerText = "🗁", 1200);
   }
 </script>
 
