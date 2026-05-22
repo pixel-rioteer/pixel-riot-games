@@ -12,7 +12,7 @@ const btn = document.getElementById("copyBtn");
 let original = btn.innerText = "Copy text";
 
 btn.addEventListener("click", () => {
-    const btnorig = document.getElementNyId("copyBtn")
+    const btnorig = document.getElementById("copyBtn")
     let text = document.getElementById("copySource").innerText;
     copyBtn.innertext = copyBtn.innerText.replace("Copy text", "");
 
@@ -24,7 +24,7 @@ btn.addEventListener("click", () => {
             btn.innerText = original;
             btn.disabled = false;
         }, 3000);
-        btn.innerText = 
+        btn.innerText = btnorig
     });
 });
 </script>
