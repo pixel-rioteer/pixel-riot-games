@@ -5,29 +5,20 @@
 </head>
 <body>
 
-<p id="copySource">Locked text that users cannot change.<button id="copyBtn"></button></p>
+<p>
+  This is the text to copy
+  <button onclick="copyText(this)">Copy</button>
+</p>
 
 <script>
-const btn = document.getElementById("copyBtn");
-let original = btn.innerText = "Copy text";
-
-btn.addEventListener("click", () => {
-    const btnorig = document.getElementById("copyBtn")
-    let text = document.getElementById("copySource").innerText;
-    copyBtn.innertext = copyBtn.innerText.replace("Copy text", "");
-
-    navigator.clipboard.writeText(text).then(() => {
-        btn.innerText = "Copied!";
-        btn.disabled = true;
-
-        setTimeout(() => {
-            btn.innerText = original;
-            btn.disabled = false;
-        }, 3000);
-        btn.innerText = btnorig
-    });
-});
+  function copyText(btn) {
+    const text = btn.parentElement.innerText.replace("Copy", "").trim();
+    navigator.clipboard.writeText(text);
+    btn.innerText = "Copied!";
+    setTimeout(() => btn.innerText = "Copy", 1200);
+  }
 </script>
+
 
 </body>
 </html>
