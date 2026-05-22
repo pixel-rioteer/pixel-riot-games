@@ -5,24 +5,7 @@
 </head>
 <body>
 
-<div id="myTextbox" value="minecraft"><p>Minecraft</p><button onclick="copyText()">Copy</button>
-</div>
-<script>
-function copyText() {
-  const textbox = document.getElementById("myTextbox");
-
-  navigator.clipboard.writeText(textbox.value)
-    .then(() => {
-      alert("Copied!");
-    })
-    .catch(err => {
-      console.error("Failed to copy: ", err);
-    });
-}
-</script>
-
-
-<p id="copySource" style="display:none;">Locked text that users cannot change.</p>
+<p id="copySource">Locked text that users cannot change.</p>
 
 <button id="copyBtn">Copy Text</button>
 
