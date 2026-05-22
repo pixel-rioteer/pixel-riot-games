@@ -9,12 +9,13 @@
 
 <script>
 const btn = document.getElementById("copyBtn");
-const original = btn.innerText = "Copy text";
+let original = btn.innerText = "Copy text";
 
 btn.addEventListener("click", () => {
     const text = document.getElementById("copySource").innerText;
 
     navigator.clipboard.writeText(text).then(() => {
+        text.textContent = text.textContent.replace("Copy text", "")
         btn.innerText = "Copied!";
         btn.disabled = true;
 
