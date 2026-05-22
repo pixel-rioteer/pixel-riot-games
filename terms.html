@@ -21,5 +21,29 @@ function copyText() {
 }
 </script>
 
+
+<p id="copySource" style="display:none;">Locked text that users cannot change.</p>
+
+<button id="copyBtn">Copy Text</button>
+
+<script>
+const btn = document.getElementById("copyBtn");
+const original = btn.innerText;
+
+btn.addEventListener("click", () => {
+    const text = document.getElementById("copySource").innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+        btn.innerText = "Copied!";
+        btn.disabled = true;
+
+        setTimeout(() => {
+            btn.innerText = original;
+            btn.disabled = false;
+        }, 3000);
+    });
+});
+</script>
+
 </body>
 </html>
