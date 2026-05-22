@@ -5,11 +5,11 @@
 </head>
 <body>
 
-<p id="copySource">Locked text that users cannot change.<button id="copyBtn">Copy Text</button></p>
+<p id="copySource">Locked text that users cannot change.<button id="copyBtn"></button></p>
 
 <script>
 const btn = document.getElementById("copyBtn");
-const original = btn.innerText;
+const original = btn.innerText = "Copy text";
 
 btn.addEventListener("click", () => {
     const text = document.getElementById("copySource").innerText;
