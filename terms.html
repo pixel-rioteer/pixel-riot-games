@@ -7,12 +7,12 @@
 
 <p class="copy-line">
   This is 1st thing
-  <button class="copy-btn" onclick="copyText(this)">Copy</button>
+  <button class="copy-btn" onclick="copyText(this)">🗐</button>
 </p>
 
 <p class="copy-line">
   This is 2nd thing
-  <button class="copy-btn" onclick="copyText(this)">Copy</button>
+  <button class="copy-btn" onclick="copyText(this)">🗐</button>
 </p>
 
 <script>
@@ -20,7 +20,7 @@
     const text = btn.parentElement.innerText.replace("Copy", "").trim();
     navigator.clipboard.writeText(text);
 
-    btn.innerText = "Copied!";
+    btn.innerText = "✓";
     setTimeout(() => btn.innerText = "Copy", 1200);
   }
 </script>
