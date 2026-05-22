@@ -8,27 +8,57 @@
     <p class="text-green-400 uppercase tracking-[0.3em] text-sm font-bold">Minecraft Hub</p><h1 class="text-6xl font-black mt-4">Commands, Tips, Servers</h1><p class="text-gray-300 text-xl mt-5 max-w-3xl">Everything Minecraft on PIXEL-RIOT, from quick commands to PvP practice and server picks.</p>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-14">
       
-      <div class="mb-10">
-        <h3 class="text-3xl font-bold mb-6 text-green-400">Commands</h3>
+    <div class="mb-10">
+      <h3 class="text-3xl font-bold mb-6 text-green-400">Commands</h3>
         <div class="text-gray-400">We all know that one player who cant stop using them</div>
-      <div class="space-y-4">
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Tags (Just to Know)</strong></div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@p: nearest player (You)</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@r: random player</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@a: all players</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@e: all entities (players, mobs, items)</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@p: nearest player (You)</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Gamemodes:</strong></div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/gamemode creative (or any other gamemodes)</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Transportation</strong></div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/tp 100 145 54 (Coordinate way)</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/tp cabrahamspc steve (player to player)</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Transportation</strong></div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Time & Weather</strong></div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/weather clear</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/time set day</div>
-      <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Spawning</strong></div>
-      </div>
+          <div class="space-y-4">
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Tags (Just to Know)</strong></div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@p: nearest player (You)</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@r: random player</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@a: all players</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@e: all entities (players, mobs, items)</div>
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">@p: nearest player (You)</div>
+            
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Gamemodes:</strong></div>
+            <div class="copy-line bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/gamemode creative (or any other gamemodes)
+              <button class="copy-btn" onclick="copyText(this)">🗁</button>
+            </div>
+            
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Transportation</strong></div>
+            <div class="copy-line bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/tp 100 145 54
+              <button class="copy-btn" onclick="copyText(this)">🗁</button>
+            </div>
+            <div class="copy-line bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/tp cabrahamspc steve
+              <button class="copy-btn" onclick="copyText(this)">🗁</button>
+            </div>
+            
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Transportation</strong></div>
+            
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Time & Weather</strong></div>
+            <div class="copy-line bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/weather clear
+              <button class="copy-btn" onclick="copyText(this)">🗁</button>
+            </div>
+            <div class="copy-line bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300">/time set day
+              <button class="copy-btn" onclick="copyText(this)">🗁</button>
+            </div>
+            
+            <div class="bg-black/50 border border-white/10 px-5 py-4 rounded-2xl font-mono text-green-300"><strong>Spawning</strong></div>
+
+            <p class="copy-line">
+              This is 2nd thing<button class="copy-btn" onclick="copyText(this)">🗁</button>
+            </p>
+
+            <script>
+              function copyText(btn) {
+                const text = btn.parentElement.innerText.replace("🗁", "").trim();
+                navigator.clipboard.writeText(text);
+
+                btn.innerText = "✓";
+                setTimeout(() => btn.innerText = "🗁", 1200);
+              }
+            </script>
+          </div>
+        </div>
     </div>
   </main>
 </body>
