@@ -17,11 +17,11 @@
 
 <script>
   function copyText(btn) {
-    const text = btn.parentElement.innerText.replace("Copy", "").trim();
+    const text = btn.parentElement.innerText.replace("🗐", "").trim();
     navigator.clipboard.writeText(text);
 
     btn.innerText = "✓";
-    setTimeout(() => btn.innerText = "Copy", 1200);
+    setTimeout(() => btn.innerText = "🗐", 1200);
   }
 </script>
 
