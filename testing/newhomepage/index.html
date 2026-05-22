@@ -9,24 +9,26 @@
 </head>
 <body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
 
-<input id="searchBox" type="text" placeholder="Search">
-<button onclick="search()">Search</button>
+
+
+<input id="searchBox" type="text" onkeyup="liveSearch()" placeholder="Search">
 
 <ul id="items">
-  <li>Apple</li>
-  <li>Banana</li>
-  <li>Orange</li>
-  <li>Grape</li>
+  <li>Dog</li>
+  <li>Cat</li>
+  <li>Hamster</li>
+  <li>Rabbit</li>
 </ul>
 
 <script>
-function search() {
+function liveSearch() {
   const text = document.getElementById("searchBox").value.toLowerCase();
   const items = document.querySelectorAll("#items li");
 
   items.forEach(item => {
-    const match = item.textContent.toLowerCase().includes(text);
-    item.style.display = match ? "list-item" : "none";
+    item.style.display = item.textContent.toLowerCase().includes(text)
+      ? "list-item"
+      : "none";
   });
 }
 </script>
