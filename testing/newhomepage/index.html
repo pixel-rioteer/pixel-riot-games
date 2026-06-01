@@ -12,7 +12,7 @@
 
 
 <input class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300"" id="searchBox" type="text" onkeyup="liveSearch()" placeholder="Search">
-
+<br>
 <ul id="items">
   <li>
     <label class="cursor-pointer">
@@ -22,6 +22,7 @@
         </span>
     </label>
   </li>
+  <br>
   <li>
     <label class="cursor-pointer">
       <input type="radio" name="Game-Choose" value="option Elden Ring" class="peer sr-only" id="1" />
@@ -30,6 +31,7 @@
         </span>
     </label>
   </li>
+  <br>
   <li>
     <label class="cursor-pointer">
       <input type="radio" name="Game-Choose" value="option half life 2" class="peer sr-only" id="1" />
@@ -38,6 +40,7 @@
         </span>
     </label>
   </li>
+  <br>
   <li>
     <label class="cursor-pointer">
       <input type="radio" name="Game-Choose" value="option COD" class="peer sr-only" id="1" />
@@ -46,6 +49,7 @@
         </span>
     </label>
   </li>
+  <br>
   <li>
     <label class="cursor-pointer">
       <input type="radio" name="Game-Choose" value="option Rocket League" class="peer sr-only" id="1" />
@@ -54,6 +58,7 @@
         </span>
     </label>
   </li>
+  <br>
   <li>
     <label class="cursor-pointer">
       <input type="radio" name="Game-Choose" value="option Rust" class="peer sr-only" id="1" />
@@ -62,6 +67,7 @@
         </span>
     </label>
   </li>
+  <br>
   <li>
     <label class="cursor-pointer">
       <input type="radio" name="Game-Choose" value="option Minecraft" class="peer sr-only" id="1" />
@@ -70,6 +76,7 @@
         </span>
     </label>
   </li>
+  <br>
   <li>
     <label class="cursor-pointer">
       <input type="radio" name="Game-Choose" value="option Forza Horizon 5" class="peer sr-only" id="1" />
@@ -116,61 +123,94 @@ function liveSearch() {
         Pick Game To Review-->
         <legend class="px-2 text-sm font-bold uppercase tracking-widest text-cyan-400">What Game?</legend>
         <div class="mt-3 grid grid-rows-5 grid-cols-1 gap-2">
-          <!--Forza Horizon 5-->
-          <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Forza Horizon 5" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              Forza Horizon
-            </span>
-          </label>
-          <!--Minecraft-->
-          <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Minecraft" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              Minecraft
-            </span>
-          </label>
-          <!--Rust-->
-          <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Rust" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              Rust
-            </span>
-          </label>
-          <!--Rocket League-->
-          <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Rocket League" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              Rocket League
-            </span>
-          </label>
-          <!--COD-->
-          <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option COD" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              COD</span>
-          </label>
-          <!--Elden Ring-->
-          <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Elden Ring" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              Elden Ring
-            </span>
-          </label>
-          <!--half life 2-->
-          <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option half life 2" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              half life 2
-            </span>
-          </label>
-          <!--pixel-riot-->
+        <input class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300" id="searchBox" type="text" onkeyup="liveSearch()" placeholder="Search">
+        <br>
+        <ul id="items">
+        <li>
           <label class="cursor-pointer">
             <input type="radio" name="Game-Choose" value="option Pixel-riot" class="peer sr-only" id="1" />
-            <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              Pixel-Riot? Maybe?
-            </span>
-          </label>
+              <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+               Pixel-Riot? Maybe?
+              </span>
+        </label>
+      </li>
+      <br>
+      <li>
+      <label class="cursor-pointer">
+        <input type="radio" name="Game-Choose" value="option Elden Ring" class="peer sr-only" id="1" />
+          <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+           Elden Ring
+          </span>
+        </label>
+      </li>
+      <br>
+      <li>
+      <label class="cursor-pointer">
+        <input type="radio" name="Game-Choose" value="option half life 2" class="peer sr-only" id="1" />
+          <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+          half life 2
+          </span>
+        </label>
+      </li>
+      <br>
+      <li>
+      <label class="cursor-pointer">
+        <input type="radio" name="Game-Choose" value="option COD" class="peer sr-only" id="1" />
+          <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+          COD
+          </span>
+        </label>
+      </li>
+      <br>
+      <li>
+      <label class="cursor-pointer">
+        <input type="radio" name="Game-Choose" value="option Rocket League" class="peer sr-only" id="1" />
+          <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+          Rocket League
+          </span>
+        </label>
+      </li>
+      <br>
+      <li>
+      <label class="cursor-pointer">
+        <input type="radio" name="Game-Choose" value="option Rust" class="peer sr-only" id="1" />
+          <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+          Rust
+          </span>
+        </label>
+      </li>
+      <br>
+      <li>
+      <label class="cursor-pointer">
+       <input type="radio" name="Game-Choose" value="option Minecraft" class="peer sr-only" id="1" />
+         <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+         Minecraft
+        </span>
+      </label>
+      </li>
+      <br>
+      <li>
+      <label class="cursor-pointer">
+        <input type="radio" name="Game-Choose" value="option Forza Horizon 5" class="peer sr-only" id="1" />
+          <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
+          Forza Horizon
+          </span>
+        </label>
+      </li>
+    </ul>
+
+        <script>
+          function liveSearch() {
+            const text = document.getElementById("searchBox").value.toLowerCase();
+            const items = document.querySelectorAll("#items li");
+
+            items.forEach(item => {
+              item.style.display = item.textContent.toLowerCase().includes(text)
+                ? "list-item"
+                : "none";
+            });
+          }
+          </script>
           <br>
   
           <!--Option Results-->
