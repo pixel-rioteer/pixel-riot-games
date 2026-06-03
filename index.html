@@ -72,11 +72,11 @@
     const username = form.elements["username"].value;
     const gamename = form.elements["gamename"].value;
     const email = form.elements["email"].value;
-    const WantUpdates = form.elements["Want-updates?"].value;
+    const Want-Updates? = form.elements["Want-updates?"].value;
     // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
     const { data, error } = await supabase
       .from("game-reqs")
-      .insert([{ username, email, gamename, WantUpdates }])
+      .insert([{ username, email, gamename, Want-Updates? }])
       .select();
     if (error) {
       console.error("Insert failed:", error);
