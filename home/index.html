@@ -504,9 +504,7 @@
           </div>
         </fieldset>
         <!--actual written review-->
-          <textarea rows="5" class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" placeholder="what good or bad things do you have to say about this?" name="text review">
-            
-          </textarea>
+          <textarea rows="5" class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" placeholder="what good or bad things do you have to say about this?" name="text review"></textarea>
         <!--Submit Box-->
         <input type="submit" class="block text-center w-full py-4 rounded-2xl bg-cyan-500 text-black font-black hover:bg-cyan-400 transition-all"></input>
           </div>
@@ -521,7 +519,7 @@
   document.getElementById("gamereview").addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
-    const game-name = form.elements["game-choose"].value;
+    const gamename = form.elements["game-choose"].value;
     const rating = form.elements["Rating"].value;
     const writtenreview = form.elements["text review"].value;
 
@@ -529,7 +527,7 @@
     // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
     const { data, error } = await supabase
       .from("gamereview")
-      .insert([{ game-name, rating, writtenreview }])
+      .insert([{ gamename, rating, writtenreview }])
       .select();
     if (error) {
       console.error("Insert failed:", error);
