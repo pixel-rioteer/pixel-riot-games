@@ -508,7 +508,7 @@
             
           </textarea>
         <!--Submit Box-->
-        <a class="block text-center w-full py-4 rounded-2xl bg-cyan-500 text-black font-black hover:bg-cyan-400 transition-all">Submit Review</a>
+        <input type="submit" class="block text-center w-full py-4 rounded-2xl bg-cyan-500 text-black font-black hover:bg-cyan-400 transition-all"></input>
           </div>
         </form>
 <script type="module">
@@ -523,11 +523,13 @@
     const form = e.target;
     const game-name = form.elements["game-choose"].value;
     const rating = form.elements["Rating"].value;
+    const writtenreview = form.elements["text review"].value;
+
 
     // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
     const { data, error } = await supabase
       .from("gamereview")
-      .insert([{ game-name, rating }])
+      .insert([{ game-name, rating, writtenreview }])
       .select();
     if (error) {
       console.error("Insert failed:", error);
