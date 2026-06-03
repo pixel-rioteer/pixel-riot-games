@@ -276,55 +276,55 @@
         <div class="mt-3 grid grid-rows-5 grid-cols-1 gap-2">
           <!--Forza Horizon 5-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Forza Horizon 5" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option Forza Horizon" class="peer sr-only" id="Forza Horizon" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
               Forza Horizon
             </span>
           </label>
           <!--Minecraft-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Minecraft" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option Minecraft" class="peer sr-only" id="Minecraft" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
               Minecraft
             </span>
           </label>
           <!--Rust-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Rust" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option Rust" class="peer sr-only" id="Rust" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
               Rust
             </span>
           </label>
           <!--Rocket League-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Rocket League" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option Rocket League" class="peer sr-only" id="Rocket League" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
               Rocket League
             </span>
           </label>
           <!--COD-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option COD" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option COD" class="peer sr-only" id="COD" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
               COD</span>
           </label>
           <!--Elden Ring-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Elden Ring" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option Elden Ring" class="peer sr-only" id="Elden Ring" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
               Elden Ring
             </span>
           </label>
           <!--half life 2-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option half life 2" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option half life 2" class="peer sr-only" id="Half Life 2" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
-              half life 2
+              Half Life 2
             </span>
           </label>
           <!--pixel-riot-->
           <label class="cursor-pointer">
-            <input type="radio" name="Game-Choose" value="option Pixel-riot" class="peer sr-only" id="1" />
+            <input type="radio" name="Game-Choose" value="option Pixel-riot" class="peer sr-only" id="Pixel-riot" />
             <span class="block rounded-xl border border-white/10 bg-zinc-950 px-2 py-3 text-center text-sm font-black text-gray-300 transition peer-checked:border-cyan-400 peer-checked:bg-cyan-500 peer-checked:text-black">
               Pixel-Riot? Maybe?
             </span>
@@ -381,7 +381,7 @@
     </fieldset>
   </div>
   
-  <div id="option Forza Horizon 5" style="display:none; padding:20px; margin-top:15px; background:#0f0f0f; border:2px solid #1f1f1f; border-radius:10px;">
+  <div id="option Forza Horizon" style="display:none; padding:20px; margin-top:15px; background:#0f0f0f; border:2px solid #1f1f1f; border-radius:10px;">
     <legend class="px-2 text-sm font-bold uppercase tracking-widest text-cyan-400">Edition</legend>
       <br><div class="mt-3 grid grid-cols-1 grid-rows-2 gap-2">
         
@@ -511,6 +511,33 @@
         <a class="block text-center w-full py-4 rounded-2xl bg-cyan-500 text-black font-black hover:bg-cyan-400 transition-all">Submit Review</a>
           </div>
         </form>
+<script type="module">
+
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  const supabase = createClient(
+    "https://kklarbwjgyxqhculbluy.supabase.co",
+    "sb_publishable_hQILSRKRQCekEr8CDUNXiA_YtxZnYE0"
+  );
+  document.getElementById("reqForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const game-name = form.elements["game-choose"].value;
+    const rating = form.elements["Rating"].value;
+
+    // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
+    const { data, error } = await supabase
+      .from("gamereview")
+      .insert([{ game-name, rating }])
+      .select();
+    if (error) {
+      console.error("Insert failed:", error);
+      alert(error.message);
+      return;
+    }
+    alert("you have requested this game!!! it will be on this soon!");
+    console.log(data);
+  });
+</script>
         <!--End of Submit Box
         AI reviews (nobody uses this so)-->
         <div class="space-y-6">
