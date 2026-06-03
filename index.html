@@ -48,7 +48,7 @@
         <!--Game Name Request-->
         <input id="gamename" type="text" placeholder="Game Name" class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
         <!--Submit-->
-        <input type="submit">Submit</input>
+        <input type="submit" class="w-full p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400"/>
         </div>
       </form>
       </div>
@@ -65,12 +65,12 @@
   document.getElementById("reqForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
-    const player_name = form.elements["username"].value;
-    const message = form.elements["message"].value;
+    const username = form.elements["username"].value;
+    const gamename = form.elements["gamename"].value;
     // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
     const { data, error } = await supabase
       .from("game-reqs")
-      .insert([{ username, message }])
+      .insert([{ username, email, gamename }])
       .select();
     if (error) {
       console.error("Insert failed:", error);
