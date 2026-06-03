@@ -37,7 +37,7 @@
     <section class="max-w-7xl mx-auto px-6 py-24">
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <form class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <form id="reqForm" class="rounded-3xl border border-white/10 bg-white/5 p-8">
         <h3 class="text-3xl font-bold mb-6">Request A Game</h3>
         <legend class="px-2 text-sm font-bold uppercase tracking-widest text-cyan-400">Not Working. Please Contact <u>request-games@pixel-riot.co.uk</u> For requesting games</legend>
         <div class="space-y-5">
@@ -54,13 +54,7 @@
     </section>
   </main>
   
-<
-script
- 
-type
-=
-"module"
->
+<script type="module">
 
   import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
   const supabase = createClient(
