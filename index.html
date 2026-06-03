@@ -67,6 +67,7 @@
     const form = e.target;
     const username = form.elements["username"].value;
     const gamename = form.elements["gamename"].value;
+    const email = form.elements["email"].value;
     // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
     const { data, error } = await supabase
       .from("game-reqs")
@@ -77,7 +78,7 @@
       alert(error.message);
       return;
     }
-    alert("Saved!");
+    alert("you have requested this game!!! it will be on this soon!");
     console.log(data);
   });
 </script>
