@@ -265,7 +265,7 @@
       </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <form class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <form id="gamereview" class="rounded-3xl border border-white/10 bg-white/5 p-8">
           <h3 class="text-3xl font-bold mb-6">Leave A Review</h3>
           <div class="space-y-5">
         <!--User Name-->
@@ -518,7 +518,7 @@
     "https://kklarbwjgyxqhculbluy.supabase.co",
     "sb_publishable_hQILSRKRQCekEr8CDUNXiA_YtxZnYE0"
   );
-  document.getElementById("reqForm").addEventListener("submit", async (e) => {
+  document.getElementById("gamereview").addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
     const game-name = form.elements["game-choose"].value;
