@@ -53,5 +53,38 @@
       </div>
     </section>
   </main>
+  
+<
+script
+ 
+type
+=
+"module"
+>
+
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  const supabase = createClient(
+    "https://kklarbwjgyxqhculbluy.supabase.co",
+    "sb_publishable_hQILSRKRQCekEr8CDUNXiA_YtxZnYE0"
+  );
+  document.getElementById("reqForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const player_name = form.elements["username"].value;
+    const message = form.elements["message"].value;
+    // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
+    const { data, error } = await supabase
+      .from("game-reqs")
+      .insert([{ username, message }])
+      .select();
+    if (error) {
+      console.error("Insert failed:", error);
+      alert(error.message);
+      return;
+    }
+    alert("Saved!");
+    console.log(data);
+  });
+</script>
 </body>
 </html>
