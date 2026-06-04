@@ -63,9 +63,10 @@
     </section>
   </main>
 <script name="choicething">
-    const radios = document.querySelectorAll('input[name=""]');
-    const boxes = document.querySelectorAll('input[id^=""]');
-
+  document.getElementById("reqForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const radios = document.querySelectorAll('input[name="wantupdate"]');
+    const boxes = document.querySelectorAll('input');
     radios.forEach(radio => {
       radio.addEventListener('change', () => {
         if (boxes = "yes") {
