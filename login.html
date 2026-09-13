@@ -35,12 +35,18 @@
         Log In
       </button>
       <p class="text-sm text-gray-400 text-center" id="login-message"></p>
+      <div class="flex items-center gap-3 text-xs text-gray-500 uppercase tracking-widest">
+        <div class="flex-1 h-px bg-white/10"></div>or<div class="flex-1 h-px bg-white/10"></div>
+      </div>
+      <button type="button" id="magic-link-btn" class="w-full rounded-2xl border border-cyan-400 text-cyan-200 font-black py-4 hover:bg-cyan-500/10 transition-all">
+        Email Me a Login Link
+      </button>
       <p class="text-sm text-gray-400 text-center">No account yet? <a href="signup.html" class="text-cyan-400 hover:underline">Sign up</a></p>
     </form>
   </main>
 
   <script type="module">
-    import { signIn } from "/assets/pixel-riot-app.js";
+    import { signIn, signInWithMagicLink } from "/assets/pixel-riot-app.js";
 
     const form = document.getElementById("login-form");
     const message = document.getElementById("login-message");
@@ -58,6 +64,17 @@
         return;
       }
       window.location.href = params.get("next") || "account.html";
+    });
+
+    document.getElementById("magic-link-btn").addEventListener("click", async () => {
+      const email = form.email.value.trim();
+      if (!email) {
+        message.textContent = "Enter your email above first, then tap this button.";
+        return;
+      }
+      message.textContent = "Sending link...";
+      const { error } = await signInWithMagicLink(email);
+      message.textContent = error ? error.message : `Login link sent to ${email} — check your inbox.`;
     });
   </script>
 </body>

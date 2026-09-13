@@ -35,16 +35,16 @@
   </main>
 
   <script type="module">
-    import { requireAuth, getProfile, supabase, fetchFavoriteGameIds, escapeHtml, starString, removeFavorite } from "/assets/pixel-riot-app.js";
+    import { requireAuth, getProfile, blockIfBanned, supabase, fetchFavoriteGameIds, escapeHtml, starString, removeFavorite, rankBadge } from "/assets/pixel-riot-app.js";
 
     const session = await requireAuth();
-    if (session) {
+    if (session && !(await blockIfBanned())) {
       const profile = await getProfile();
       document.getElementById("account-heading").textContent = `Welcome, ${profile.username}`;
       document.getElementById("account-info").innerHTML = `
-        <div class="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-4 text-cyan-200">
-          Signed in as <strong>${escapeHtml(profile.username)}</strong> (${escapeHtml(profile.email)})
-          ${profile.is_admin ? '<span class="ml-2 px-2 py-1 rounded-lg bg-purple-600 text-xs font-bold">ADMIN</span>' : ''}
+        <div class="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-4 text-cyan-200 flex flex-wrap items-center justify-between gap-3">
+          <span>Signed in as <strong>${escapeHtml(profile.username)}</strong>${rankBadge(profile.role)} (${escapeHtml(profile.email)})</span>
+          <a href="settings.html" class="text-cyan-300 hover:underline text-sm font-semibold">Account Settings →</a>
         </div>
       `;
 
