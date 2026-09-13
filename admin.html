@@ -20,7 +20,7 @@
   </main>
 
   <script type="module">
-    import { requireAuth, getProfile, fetchGames, createGame, updateGame, deleteGame, escapeHtml } from "/assets/pixel-riot-app.js";
+    import { requireAuth, getProfile, fetchGames, createGame, updateGame, deleteGame, escapeHtml, fetchGameRequests, deleteGameRequest } from "/assets/pixel-riot-app.js";
 
     const session = await requireAuth();
     if (session) {
@@ -33,6 +33,14 @@
         main.innerHTML = `
           <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Admin</p>
           <h1 class="text-5xl font-black mt-4">Manage Games</h1>
+
+          <section class="mt-10 rounded-3xl border border-white/10 bg-zinc-950 p-8">
+            <h2 class="text-2xl font-bold mb-2">Game Requests</h2>
+            <p class="text-gray-400 text-sm mb-6">Submitted from the "Request a Game" form on the homepage.</p>
+            <div id="requests-list" class="space-y-4">
+              <p class="text-gray-400 text-sm">Loading requests...</p>
+            </div>
+          </section>
 
           <section class="mt-10 rounded-3xl border border-white/10 bg-zinc-950 p-8">
             <h2 class="text-2xl font-bold mb-6">Add a Game</h2>
@@ -111,6 +119,49 @@
           });
         }
 
+        async function renderRequests() {
+          const requests = await fetchGameRequests();
+          const container = document.getElementById("requests-list");
+          if (!requests.length) {
+            container.innerHTML = '<p class="text-gray-400 text-sm">No pending requests.</p>';
+            return;
+          }
+          container.innerHTML = requests.map((r) => `
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-wrap items-center justify-between gap-4" data-request-id="${r.id}">
+              <div>
+                <h3 class="text-lg font-bold">${escapeHtml(r.gamename)}</h3>
+                <p class="text-gray-400 text-sm">Requested by ${escapeHtml(r.username)} (${escapeHtml(r.email)})${r.WantUpdates === 'on' ? ' · wants updates' : ''}</p>
+              </div>
+              <div class="flex gap-3">
+                <button data-convert class="text-cyan-400 hover:underline text-sm font-semibold">Add as Game</button>
+                <button data-dismiss class="text-red-400 hover:underline text-sm font-semibold">Dismiss</button>
+              </div>
+            </article>
+          `).join('');
+
+          container.querySelectorAll('[data-dismiss]').forEach((btn) => {
+            btn.addEventListener('click', async () => {
+              const article = btn.closest('[data-request-id]');
+              await deleteGameRequest(article.dataset.requestId);
+              article.remove();
+            });
+          });
+
+          container.querySelectorAll('[data-convert]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const article = btn.closest('[data-request-id]');
+              const title = article.querySelector('h3').textContent;
+              const form = document.getElementById('add-form');
+              form.title.value = title;
+              form.slug.value = title.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              form.title.focus();
+              // Store the request id so a successful submit can clean it up.
+              form.dataset.fulfillsRequestId = article.dataset.requestId;
+            });
+          });
+        }
+
         document.getElementById('add-form').addEventListener('submit', async (e) => {
           e.preventDefault();
           const form = e.target;
@@ -125,11 +176,17 @@
           });
           if (error) { message.textContent = error.message; return; }
           message.textContent = 'Game added!';
+          if (form.dataset.fulfillsRequestId) {
+            await deleteGameRequest(form.dataset.fulfillsRequestId);
+            delete form.dataset.fulfillsRequestId;
+            await renderRequests();
+          }
           form.reset();
           await renderList();
         });
 
         await renderList();
+        await renderRequests();
       }
     }
   </script>

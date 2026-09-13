@@ -185,6 +185,23 @@ export async function deleteGame(id) {
   return supabase.from("games").delete().eq("id", id);
 }
 
+// ---------- game requests (admin only, enforced by RLS) ----------
+export async function fetchGameRequests() {
+  const { data, error } = await supabase
+    .from("game-reqs")
+    .select("*")
+    .order("id", { ascending: false });
+  if (error) {
+    console.error("Failed to load game requests:", error);
+    return [];
+  }
+  return data;
+}
+
+export async function deleteGameRequest(id) {
+  return supabase.from("game-reqs").delete().eq("id", id);
+}
+
 // ---------- reviews ----------
 export async function fetchReviews(gameId) {
   const { data, error } = await supabase
