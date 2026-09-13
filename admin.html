@@ -56,6 +56,8 @@
               <input name="title" placeholder="Title" required class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
               <input name="slug" placeholder="slug-like-this" required class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
               <input name="category" placeholder="Category" class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+              <input name="platform" placeholder="Platform(s), e.g. PC, Xbox" class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+              <input name="price" placeholder="Price, e.g. Free or £29.99" class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
               <input name="image_url" placeholder="Image URL" class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
               <input name="tagline" placeholder="Tagline" class="md:col-span-2 p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
               <textarea name="description" placeholder="Description" rows="3" class="md:col-span-2 p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400"></textarea>
@@ -150,6 +152,8 @@
                 <form class="edit-form mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <input name="title" placeholder="Title" class="p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
                   <input name="category" placeholder="Category" class="p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+                  <input name="platform" placeholder="Platform(s)" class="p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+                  <input name="price" placeholder="Price" class="p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
                   <input name="tagline" placeholder="Tagline" class="md:col-span-2 p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
                   <textarea name="description" placeholder="Description" rows="2" class="md:col-span-2 p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400"></textarea>
                   <input name="image_url" placeholder="Image URL" class="md:col-span-2 p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
@@ -160,7 +164,7 @@
                 e.preventDefault();
                 const form = e.target;
                 const patch = {};
-                ['title', 'category', 'tagline', 'description', 'image_url'].forEach((field) => {
+                ['title', 'category', 'platform', 'price', 'tagline', 'description', 'image_url'].forEach((field) => {
                   if (form[field].value.trim()) patch[field] = form[field].value.trim();
                 });
                 await updateGame(article.dataset.gameId, patch);
@@ -221,6 +225,8 @@
             title: form.title.value.trim(),
             slug: form.slug.value.trim(),
             category: form.category.value.trim(),
+            platform: form.platform.value.trim(),
+            price: form.price.value.trim(),
             tagline: form.tagline.value.trim(),
             description: form.description.value.trim(),
             image_url: form.image_url.value.trim(),

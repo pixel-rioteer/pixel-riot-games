@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script type="module" src="/assets/pixel-riot-lock.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="page-title">Game | PIXEL-RIOT</title>
@@ -61,6 +61,10 @@
           <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">${escapeHtml(game.category || '')}</p>
           <h1 class="text-6xl font-black mt-4">${escapeHtml(game.title)}</h1>
           <p class="text-gray-300 text-xl mt-5">${escapeHtml(game.tagline || '')}</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            ${game.platform ? `<span class="px-4 py-2 rounded-xl bg-white/10 text-gray-200 text-sm font-semibold">🖥 ${escapeHtml(game.platform)}</span>` : ''}
+            ${game.price ? `<span class="px-4 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 text-sm font-black">${escapeHtml(game.price)}</span>` : ''}
+          </div>
           <div class="mt-6 h-72 rounded-3xl bg-cover bg-center border border-white/10" style="background-image:url('${escapeHtml(game.image_url || '')}')"></div>
           <p class="mt-6 text-gray-300 leading-relaxed">${escapeHtml(game.description || '')}</p>
 
