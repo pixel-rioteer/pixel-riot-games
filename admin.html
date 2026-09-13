@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | PIXEL-RIOT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="home/" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a>
+      <div data-auth-nav-slot class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300"></div>
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto px-6 py-20" id="admin-main">
+    <p class="text-gray-400">Checking access...</p>
+  </main>
+
+  <script type="module">
+    import { requireAuth, getProfile, fetchGames, createGame, updateGame, deleteGame, escapeHtml } from "/assets/pixel-riot-app.js";
+
+    const session = await requireAuth();
+    if (session) {
+      const profile = await getProfile();
+      const main = document.getElementById("admin-main");
+
+      if (!profile?.is_admin) {
+        main.innerHTML = '<p class="text-gray-400">You need admin access to view this page.</p>';
+      } else {
+        main.innerHTML = `
+          <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Admin</p>
+          <h1 class="text-5xl font-black mt-4">Manage Games</h1>
+
+          <section class="mt-10 rounded-3xl border border-white/10 bg-zinc-950 p-8">
+            <h2 class="text-2xl font-bold mb-6">Add a Game</h2>
+            <form id="add-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input name="title" placeholder="Title" required class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+              <input name="slug" placeholder="slug-like-this" required class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+              <input name="category" placeholder="Category" class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+              <input name="image_url" placeholder="Image URL" class="p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+              <input name="tagline" placeholder="Tagline" class="md:col-span-2 p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+              <textarea name="description" placeholder="Description" rows="3" class="md:col-span-2 p-4 rounded-2xl bg-black border border-white/10 outline-none focus:border-cyan-400"></textarea>
+              <button type="submit" class="md:col-span-2 py-4 rounded-2xl bg-cyan-500 text-black font-black hover:bg-cyan-400 transition-all">Add Game</button>
+              <p id="add-message" class="md:col-span-2 text-sm text-gray-400"></p>
+            </form>
+          </section>
+
+          <section class="mt-12">
+            <h2 class="text-2xl font-bold mb-6">Existing Games</h2>
+            <div id="games-admin-list" class="space-y-4"></div>
+          </section>
+        `;
+
+        async function renderList() {
+          const games = await fetchGames();
+          const container = document.getElementById("games-admin-list");
+          container.innerHTML = games.map((g) => `
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-5" data-game-id="${g.id}">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <h3 class="text-xl font-bold">${escapeHtml(g.title)}</h3>
+                  <p class="text-gray-400 text-sm">${escapeHtml(g.slug)} · ${escapeHtml(g.category || '')}</p>
+                </div>
+                <div class="flex gap-3">
+                  <button data-edit class="text-cyan-400 hover:underline text-sm font-semibold">Edit</button>
+                  <button data-delete class="text-red-400 hover:underline text-sm font-semibold">Delete</button>
+                </div>
+              </div>
+              <div data-edit-slot></div>
+            </article>
+          `).join('');
+
+          container.querySelectorAll('[data-delete]').forEach((btn) => {
+            btn.addEventListener('click', async () => {
+              const article = btn.closest('[data-game-id]');
+              if (!confirm('Delete this game? This also removes its reviews and favorites.')) return;
+              await deleteGame(article.dataset.gameId);
+              article.remove();
+            });
+          });
+
+          container.querySelectorAll('[data-edit]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const article = btn.closest('[data-game-id]');
+              const slot = article.querySelector('[data-edit-slot]');
+              if (slot.innerHTML) { slot.innerHTML = ''; return; }
+              slot.innerHTML = `
+                <form class="edit-form mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <input name="title" placeholder="Title" class="p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+                  <input name="category" placeholder="Category" class="p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+                  <input name="tagline" placeholder="Tagline" class="md:col-span-2 p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+                  <textarea name="description" placeholder="Description" rows="2" class="md:col-span-2 p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400"></textarea>
+                  <input name="image_url" placeholder="Image URL" class="md:col-span-2 p-3 rounded-xl bg-black border border-white/10 outline-none focus:border-cyan-400" />
+                  <button type="submit" class="md:col-span-2 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold">Save Changes</button>
+                </form>
+              `;
+              slot.querySelector('.edit-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const patch = {};
+                ['title', 'category', 'tagline', 'description', 'image_url'].forEach((field) => {
+                  if (form[field].value.trim()) patch[field] = form[field].value.trim();
+                });
+                await updateGame(article.dataset.gameId, patch);
+                await renderList();
+              });
+            });
+          });
+        }
+
+        document.getElementById('add-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const form = e.target;
+          const message = document.getElementById('add-message');
+          const { error } = await createGame({
+            title: form.title.value.trim(),
+            slug: form.slug.value.trim(),
+            category: form.category.value.trim(),
+            tagline: form.tagline.value.trim(),
+            description: form.description.value.trim(),
+            image_url: form.image_url.value.trim(),
+          });
+          if (error) { message.textContent = error.message; return; }
+          message.textContent = 'Game added!';
+          form.reset();
+          await renderList();
+        });
+
+        await renderList();
+      }
+    }
+  </script>
+</body>
+</html>
