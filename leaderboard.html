@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard | PIXEL-RIOT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="home/" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a>
+      <div data-auth-nav-slot class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300"></div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 py-20">
+    <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Community Rankings</p>
+    <h1 class="text-6xl font-black mt-4">Leaderboard</h1>
+    <p class="text-gray-400 mt-4">Games ranked by average player rating.</p>
+
+    <div id="leaderboard-list" class="mt-10 space-y-4">
+      <p class="text-gray-400">Loading...</p>
+    </div>
+  </main>
+
+  <script type="module">
+    import { fetchLeaderboard, escapeHtml, starString } from "/assets/pixel-riot-app.js";
+
+    const rows = await fetchLeaderboard();
+    const list = document.getElementById("leaderboard-list");
+
+    if (!rows.length) {
+      list.innerHTML = '<p class="text-gray-400">No games yet.</p>';
+    } else {
+      list.innerHTML = rows.map((row, i) => `
+        <a href="game.html?slug=${encodeURIComponent(row.slug)}" class="flex items-center gap-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all p-5">
+          <div class="text-3xl font-black text-cyan-400 w-10 text-center">${i + 1}</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold">${escapeHtml(row.title)}</h3>
+            <p class="text-gray-400 text-sm">${escapeHtml(row.category || '')}</p>
+          </div>
+          <div class="text-right">
+            <div class="text-cyan-300 font-black">${row.review_count > 0 ? starString(row.avg_rating) : 'Unrated'}</div>
+            <div class="text-gray-500 text-xs mt-1">${row.review_count} review${row.review_count === 1 ? '' : 's'}</div>
+          </div>
+        </a>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

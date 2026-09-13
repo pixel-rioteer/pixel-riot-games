@@ -3,97 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PIXEL-RIOT Gaming Hub</title>
+  <title>All Games | PIXEL-RIOT Gaming Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 
 <body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
   <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
-      <a href="index.html" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a>
-      <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
-          <a href="minecraft.html" class="hover:text-cyan-400">Top Games</a>
-          <a href="esports.html" class="hover:text-cyan-400">New Releases</a>
-              <a>Sponsor's: <a href="xynex.html" class="hover:text-cyan-400">Xynex</a></a>
-      </div>
+      <a href="/home/" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a>
+      <div data-auth-nav-slot class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300"></div>
     </div>
   </nav>
 
   <main>
-    <section id="reviews" class="max-w-7xl mx-auto px-6 py-24">
+    <section id="games-section" class="max-w-7xl mx-auto px-6 py-24">
       <div class="mb-10">
-        <h2 class="text-5xl font-black">Gmaes We Offer</h2>
-        <p class="text-gray-400 mt-2">Random games Press <a href="">here</a> To request Games</p>
+        <h2 class="text-5xl font-black">Games We Offer</h2>
+        <p class="text-gray-400 mt-2">Every game here lives in our database. <a href="/index.html#reqForm" class="text-cyan-400 hover:underline">Request a game</a> if you don't see one.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
-          <div class="h-64 bg-cover bg-center" style="background-image: url('assets/Forza Horizon 5 Logo better.png')"></div>
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-4"><h3 class="text-2xl font-bold">Forza Horizon 5</h3></div>
-            <p class="text-gray-400 mt-2">Racing</p>
-            <p class="mt-4 text-gray-300 leading-relaxed">are you gonna be legal or not?</p>
-            <a href="forza-review.html" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Forza Horizon 5 Page</a>
-          </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
-          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop')"></div>
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-4"><h3 class="text-2xl font-bold">Minecraft</h3></div>
-            <p class="mt-6 block text-center w-full py-3 rounded-2xl bg-white/2 hover:bg-purple-500 transition-all font-bold">Supported Platforms: </p>
-            <p class="text-gray-400 mt-2">Survival</p>
-            <p class="mt-4 text-gray-300 leading-relaxed">You're either the creative guy or the survival player.</p>
-            <a href="minecraft.html" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Minecraft Page</a>
-          </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
-          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop')"></div>
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-4"><h3 class="text-2xl font-bold">Rust</h3></div>
-            <p class="mt-6 block text-center w-full py-3 rounded-2xl bg-white/2 hover:bg-purple-500 transition-all font-bold">Supported Platforms: X-box Playstation PC (More details on page)</p>
-            <p class="text-gray-400 mt-2">IDK</p>
-            <p class="mt-4 text-gray-300 leading-relaxed">Who made a game with a title based on oxidized metal</p>
-            <a href="Rust.html" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Rust Page</a>
-          </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
-          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop')"></div>
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-4"><h3 class="text-2xl font-bold">Rocket League</h3></div>
-            <p class="text-gray-400 mt-2">Football | Driving</p>
-            <p class="mt-4 text-gray-300 leading-relaxed">Who new that Football and Driving would become a game?</p>
-            <a href="Rocket-League.html" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Rocket League Page</a>
-          </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
-          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop')"></div>
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-4"><h3 class="text-2xl font-bold">Call of Duty: Warzone</h3></div>
-            <p class="text-gray-400 mt-2">FPS</p>
-            <p class="mt-4 text-gray-300 leading-relaxed">Also Known as a type of fish (COD)</p>
-            <a href="Call-Of-Duty.html" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open COD Page</a>
-          </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
-          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop')"></div>
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-4"><h3 class="text-2xl font-bold">Elden Ring</h3></div>
-            <p class="text-gray-400 mt-2">RPG</p>
-            <p class="mt-4 text-gray-300 leading-relaxed">A huge fantasy world, memorable bosses, and deep builds make this an all-time RPG.</p>
-            <a href="elden-ring.html" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Elden Ring Page</a>
-          </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
-          <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop')"></div>
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-4"><h3 class="text-2xl font-bold">Half-Life 2</h3></div>
-            <p class="text-gray-400 mt-2">FPS</p>
-            <p class="mt-4 text-gray-300 leading-relaxed">Dead Or Not? Or Both!</p>
-            <a href="half-life-2.html" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open Elden Ring Page</a>
-          </div>
-        </article>
+      <div id="games-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <p class="text-gray-400">Loading games...</p>
       </div>
     </section>
+  </main>
 
   <footer class="border-t border-white/10 bg-black py-10 mt-20">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -102,11 +35,36 @@
         <p class="text-gray-500 mt-2">The ultimate gaming review and guide platform.</p>
       </div>
       <div class="flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
-        <a href="xynex.html">Xynex Partnership</a>
+        <a href="/leaderboard.html">Leaderboard</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/xynex/">Xynex Partnership</a>
       </div>
     </div>
   </footer>
-</body></html>
+
+  <script type="module">
+    import { fetchGames, escapeHtml } from "/assets/pixel-riot-app.js";
+
+    const games = await fetchGames();
+    const grid = document.getElementById("games-grid");
+
+    if (!games.length) {
+      grid.innerHTML = '<p class="text-gray-400">No games yet — check back soon.</p>';
+    } else {
+      grid.innerHTML = games.map((g) => `
+        <article class="rounded-3xl overflow-hidden border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02]">
+          <div class="h-64 bg-cover bg-center" style="background-image: url('${escapeHtml(g.image_url ? (g.image_url.startsWith('http') ? g.image_url : '/' + g.image_url) : '')}')"></div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold">${escapeHtml(g.title)}</h3>
+            <p class="text-gray-400 mt-2">${escapeHtml(g.category || '')}</p>
+            <p class="mt-4 text-gray-300 leading-relaxed">${escapeHtml(g.tagline || '')}</p>
+            <a href="/game.html?slug=${encodeURIComponent(g.slug)}" class="mt-6 block text-center w-full py-3 rounded-2xl bg-purple-600 hover:bg-purple-500 transition-all font-bold">Open ${escapeHtml(g.title)} Page</a>
+          </div>
+        </article>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

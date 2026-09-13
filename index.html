@@ -19,6 +19,13 @@
   </script>
 </head>
 <body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/home/" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a>
+      <div data-auth-nav-slot class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300"></div>
+    </div>
+  </nav>
+
   <section class="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-blue-900">
     <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400&auto=format&fit=crop')] bg-cover bg-center">
     </div>
@@ -62,35 +69,18 @@
       </div>
     </section>
   </main>
-<script name="choicething">
-  document.getElementById("reqForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const radios = document.querySelectorAll('input[name="wantupdate"]');
-    const boxes = document.querySelectorAll('input');
-    radios.forEach(radio => {
-      radio.addEventListener('change', () => {
-        if (boxes = "yes") {
-          alert("yes")
-        } else if (boxes = "no") {
-          alert("no")
-        }
-      });
-    });
-</script>
 <script type="module">
+  import { supabase } from "/assets/pixel-riot-app.js";
 
-  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-  const supabase = createClient(
-    "https://kklarbwjgyxqhculbluy.supabase.co",
-    "sb_publishable_hQILSRKRQCekEr8CDUNXiA_YtxZnYE0"
-  );
   document.getElementById("reqForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
     const username = form.elements["username"].value;
     const gamename = form.elements["gamename"].value;
     const email = form.elements["email"].value;
-    const WantUpdates = script;
+    const wantUpdateRadio = form.querySelector('input[name="wantupdate"]:checked');
+    const WantUpdates = wantUpdateRadio ? wantUpdateRadio.id : "no";
+
     // NOTE: table name has a dash, so we quote it in SQL—supabase-js handles it as a string.
     const { data, error } = await supabase
       .from("game-reqs")

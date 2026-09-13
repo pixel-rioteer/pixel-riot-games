@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In | PIXEL-RIOT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="home/" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a>
+      <div data-auth-nav-slot class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300"></div>
+    </div>
+  </nav>
+
+  <main class="max-w-md mx-auto px-6 py-24">
+    <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Welcome back</p>
+    <h1 class="text-5xl font-black mt-4">Log In</h1>
+    <p class="text-gray-400 mt-4">Access your favorites, reviews, and account.</p>
+
+    <form id="login-form" class="mt-10 space-y-5 rounded-3xl border border-white/10 bg-zinc-950 p-8">
+      <div>
+        <label class="text-sm text-gray-400" for="email">Email</label>
+        <input id="email" name="email" type="email" required
+          class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
+      </div>
+      <div>
+        <label class="text-sm text-gray-400" for="password">Password</label>
+        <input id="password" name="password" type="password" required
+          class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
+      </div>
+      <button type="submit" class="w-full rounded-2xl bg-cyan-500 text-black font-black py-4 hover:bg-cyan-400 transition-all">
+        Log In
+      </button>
+      <p class="text-sm text-gray-400 text-center" id="login-message"></p>
+      <p class="text-sm text-gray-400 text-center">No account yet? <a href="signup.html" class="text-cyan-400 hover:underline">Sign up</a></p>
+    </form>
+  </main>
+
+  <script type="module">
+    import { signIn } from "/assets/pixel-riot-app.js";
+
+    const form = document.getElementById("login-form");
+    const message = document.getElementById("login-message");
+    const params = new URLSearchParams(window.location.search);
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      message.textContent = "Logging in...";
+      const email = form.email.value.trim();
+      const password = form.password.value;
+
+      const { error } = await signIn({ email, password });
+      if (error) {
+        message.textContent = error.message;
+        return;
+      }
+      window.location.href = params.get("next") || "account.html";
+    });
+  </script>
+</body>
+</html>
