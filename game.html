@@ -65,6 +65,7 @@
             ${game.platform ? `<span class="px-4 py-2 rounded-xl bg-white/10 text-gray-200 text-sm font-semibold">🖥 ${escapeHtml(game.platform)}</span>` : ''}
             ${game.price ? `<span class="px-4 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 text-sm font-black">${escapeHtml(game.price)}</span>` : ''}
           </div>
+          ${game.price_breakdown ? `<p class="mt-2 text-gray-500 text-sm">${escapeHtml(game.price_breakdown)}</p>` : ''}
           <div class="mt-6 h-72 rounded-3xl bg-cover bg-center border border-white/10" style="background-image:url('${escapeHtml(game.image_url || '')}')"></div>
           <p class="mt-6 text-gray-300 leading-relaxed">${escapeHtml(game.description || '')}</p>
 
