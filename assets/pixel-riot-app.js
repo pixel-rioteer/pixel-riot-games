@@ -1,6 +1,6 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 const SUPABASE_URL = "https://kklarbwjgyxqhculbluy.supabase.co";
-const SUPABASE_KEY = "sb_publishable_hQILSRKRQCek4r8CDUNXiA_YtxZnYE0";
+const SUPABASE_KEY = "sb_publishable_hQILSRKRQCek4e8CDUNXiA_YtxZnYE0";
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 export function escapeHtml(value){return String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
 export function starString(rating){const n=Math.round(Number(rating)||0);return "★".repeat(n)+"☆".repeat(Math.max(0,5-n));}
