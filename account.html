@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script type="module" src="/assets/pixel-riot-lock.js"></script>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Account | PIXEL-RIOT</title>
@@ -35,7 +35,7 @@
   </main>
 
   <script type="module">
-    import { requireAuth, getProfile, blockIfBanned, supabase, fetchFavoriteGameIds, escapeHtml, starString, removeFavorite, rankBadge } from "/assets/pixel-riot-app.js";
+    import { requireAuth, getProfile, blockIfBanned, supabase, fetchFavoriteGameIds, escapeHtml, starString, removeFavorite, rankBadge } from "/assets/pixel-riot-app.js?v=20260916-2";
 
     const session = await requireAuth();
     if (session && !(await blockIfBanned())) {
@@ -48,7 +48,6 @@
         </div>
       `;
 
-      // Favorites
       const gameIds = await fetchFavoriteGameIds(session.user.id);
       const favContainer = document.getElementById("favorites-list");
       if (!gameIds.length) {
@@ -74,7 +73,6 @@
         });
       }
 
-      // Reviews
       const { data: reviews } = await supabase
         .from("reviews")
         .select("id, rating, body, created_at, games(title, slug)")
