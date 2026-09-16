@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script type="module" src="/assets/pixel-riot-lock.js"></script>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Settings | PIXEL-RIOT</title>
@@ -20,7 +20,7 @@
   </main>
 
   <script type="module">
-    import { requireAuth, getProfile, blockIfBanned, supabase, rankBadge, escapeHtml } from "/assets/pixel-riot-app.js";
+    import { requireAuth, getProfile, blockIfBanned, supabase, rankBadge, escapeHtml } from "/assets/pixel-riot-app.js?v=20260916-2";
 
     const session = await requireAuth();
     if (session) {
