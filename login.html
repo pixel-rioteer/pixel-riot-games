@@ -23,59 +23,25 @@
     <form id="login-form" class="mt-10 space-y-5 rounded-3xl border border-white/10 bg-zinc-950 p-8">
       <div>
         <label class="text-sm text-gray-400" for="email">Email</label>
-        <input id="email" name="email" type="email" required
-          class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
+        <input id="email" name="email" type="email" required class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
       </div>
       <div>
         <label class="text-sm text-gray-400" for="password">Password</label>
-        <input id="password" name="password" type="password" required
-          class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
+        <input id="password" name="password" type="password" required class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
       </div>
-      <button type="submit" class="w-full rounded-2xl bg-cyan-500 text-black font-black py-4 hover:bg-cyan-400 transition-all">
-        Log In
-      </button>
+      <button type="submit" class="w-full rounded-2xl bg-cyan-500 text-black font-black py-4 hover:bg-cyan-400 transition-all">Log In</button>
       <p class="text-sm text-gray-400 text-center" id="login-message"></p>
-      <div class="flex items-center gap-3 text-xs text-gray-500 uppercase tracking-widest">
-        <div class="flex-1 h-px bg-white/10"></div>or<div class="flex-1 h-px bg-white/10"></div>
-      </div>
-      <button type="button" id="magic-link-btn" class="w-full rounded-2xl border border-cyan-400 text-cyan-200 font-black py-4 hover:bg-cyan-500/10 transition-all">
-        Email Me a Login Link
-      </button>
+      <div class="flex items-center gap-3 text-xs text-gray-500 uppercase tracking-widest"><div class="flex-1 h-px bg-white/10"></div>or<div class="flex-1 h-px bg-white/10"></div></div>
+      <button type="button" id="magic-link-btn" class="w-full rounded-2xl border border-cyan-400 text-cyan-200 font-black py-4 hover:bg-cyan-500/10 transition-all">Email Me a Login Link</button>
       <p class="text-sm text-gray-400 text-center">No account yet? <a href="signup.html" class="text-cyan-400 hover:underline">Sign up</a></p>
     </form>
   </main>
 
   <script type="module">
-    import { signIn, signInWithMagicLink } from "/assets/pixel-riot-app.js";
-
-    const form = document.getElementById("login-form");
-    const message = document.getElementById("login-message");
-    const params = new URLSearchParams(window.location.search);
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      message.textContent = "Logging in...";
-      const email = form.email.value.trim();
-      const password = form.password.value;
-
-      const { error } = await signIn({ email, password });
-      if (error) {
-        message.textContent = error.message;
-        return;
-      }
-      window.location.href = params.get("next") || "account.html";
-    });
-
-    document.getElementById("magic-link-btn").addEventListener("click", async () => {
-      const email = form.email.value.trim();
-      if (!email) {
-        message.textContent = "Enter your email above first, then tap this button.";
-        return;
-      }
-      message.textContent = "Sending link...";
-      const { error } = await signInWithMagicLink(email);
-      message.textContent = error ? error.message : `Login link sent to ${email} — check your inbox.`;
-    });
+    import { signIn, signInWithMagicLink } from "/assets/pixel-riot-app.js?v=20260916-2";
+    const form=document.getElementById("login-form"),message=document.getElementById("login-message"),params=new URLSearchParams(window.location.search);
+    form.addEventListener("submit",async e=>{e.preventDefault();message.textContent="Logging in...";const {error}=await signIn({email:form.email.value.trim(),password:form.password.value});if(error){message.textContent=error.message;return}window.location.href=params.get("next")||"account.html"});
+    document.getElementById("magic-link-btn").addEventListener("click",async()=>{const email=form.email.value.trim();if(!email){message.textContent="Enter your email above first, then tap this button.";return}message.textContent="Sending link...";const {error}=await signInWithMagicLink(email);message.textContent=error?error.message:`Login link sent to ${email} — check your inbox.`});
   </script>
 </body>
 </html>
