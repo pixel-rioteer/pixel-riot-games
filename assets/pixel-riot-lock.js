@@ -12,5 +12,7 @@ if (!publicPaths.includes(path)) {
   }
   if (!profile || (profile.role !== "owner" && profile.authorized !== true)) {
     window.location.replace(rootPath("login.html?unauthorized=1"));
+  } else if (path === "/admin.html") {
+    const s=document.createElement("script");s.type="module";s.src="/assets/pixel-riot-access-ui.js?v=20260916-1";document.head.appendChild(s);
   }
 }
