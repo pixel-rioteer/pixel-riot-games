@@ -42,4 +42,43 @@ export async function unbanUser(userId){return supabase.from("profiles").update(
 export async function saveGamePage(id,page_theme,page_layout,content={}){const patch={page_theme:JSON.parse(JSON.stringify(page_theme)),page_layout:JSON.parse(JSON.stringify(page_layout))};for(const key of ["title","category","tagline","image_url","platform","price","price_breakdown","description","tips","known_issues","secrets_cheats","commands_reference","elements_reference"]){if(Object.prototype.hasOwnProperty.call(content,key))patch[key]=content[key];}const result=await supabase.from("games").update(patch).eq("id",id).select("*").single();if(result.error)console.error("saveGamePage failed",result.error);return result;}
 export async function createManagedUser(payload){const session=await getSession();if(!session)return {data:null,error:new Error("You must be logged in.")};return supabase.functions.invoke("owner-create-user",{body:payload});}
 export async function fetchProfiles(){const {data,error}=await supabase.from("profiles").select("id,username,role,tag,permissions,banned,banned_reason").order("username");if(error)console.error(error);return {data:data||[],error};}
-document.addEventListener("DOMContentLoaded",renderAuthNav);
+
+export async function uploadGameImage(file){
+  if(!file||!file.type?.startsWith("image/")) throw new Error("Please choose an image file.");
+  if(file.size>10*1024*1024) throw new Error("Images must be 10MB or smaller.");
+  const session=await getSession();
+  if(!session) throw new Error("You must be logged in to upload an image.");
+  const ext=(file.name?.split(".").pop()||file.type.split("/").pop()||"png").toLowerCase().replace(/[^a-z0-9]/g,"")||"png";
+  const path=`${session.user.id}/${crypto.randomUUID()}.${ext}`;
+  const {error}=await supabase.storage.from("game-images").upload(path,file,{contentType:file.type,upsert:false});
+  if(error) throw error;
+  const {data}=supabase.storage.from("game-images").getPublicUrl(path);
+  return data.publicUrl;
+}
+
+function imageUploadUI(input){
+  if(!input||input.dataset.imageUploadReady)return;
+  input.dataset.imageUploadReady="1";
+  const wrap=document.createElement("div");
+  wrap.className="flex flex-wrap items-center gap-2 mt-2";
+  const fileInput=document.createElement("input");
+  fileInput.type="file";fileInput.accept="image/*";fileInput.className="hidden";
+  const button=document.createElement("button");
+  button.type="button";button.className="secondary";button.textContent="Upload / choose photo";
+  const hint=document.createElement("span");hint.className="muted text-xs";hint.textContent="or paste an image here (Ctrl/Cmd+V)";
+  wrap.append(button,fileInput,hint);input.insertAdjacentElement("afterend",wrap);
+  const setBusy=(busy)=>{button.disabled=busy;button.textContent=busy?"Uploading…":"Upload / choose photo";};
+  const upload=async file=>{try{setBusy(true);input.value=await uploadGameImage(file);input.dispatchEvent(new Event("input",{bubbles:true}));input.dispatchEvent(new Event("change",{bubbles:true}));}catch(err){alert(err.message||"Image upload failed.");}finally{setBusy(false);}};
+  button.addEventListener("click",()=>fileInput.click());
+  fileInput.addEventListener("change",()=>{if(fileInput.files?.[0])upload(fileInput.files[0]);});
+  input.addEventListener("paste",e=>{const item=[...(e.clipboardData?.items||[])].find(x=>x.type.startsWith("image/"));if(item){e.preventDefault();upload(item.getAsFile());}});
+}
+function enhanceImageInputs(root=document){
+  root.querySelectorAll?.('[data-field="image_url"], [data-prop="url"]').forEach(imageUploadUI);
+}
+function installImagePasteSupport(){
+  enhanceImageInputs(document);
+  const observer=new MutationObserver(mutations=>mutations.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1)enhanceImageInputs(n);})));observer.observe(document.body,{childList:true,subtree:true});
+}
+
+document.addEventListener("DOMContentLoaded",()=>{renderAuthNav();installImagePasteSupport();});
