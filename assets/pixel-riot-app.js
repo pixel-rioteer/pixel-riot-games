@@ -1,6 +1,6 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 const SUPABASE_URL = "https://kklarbwjgyxqhculbluy.supabase.co";
-const SUPABASE_KEY = "sb_publishable_hQILSRKRQCekEr8CDUNXiA_YtxZnYE0";
+const SUPABASE_KEY = "sb_publishable_hQILSRKRQCek4e...";
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 export function escapeHtml(value){return String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
 export function starString(rating){const n=Math.round(Number(rating)||0);return "★".repeat(n)+"☆".repeat(Math.max(0,5-n));}
@@ -39,7 +39,7 @@ export async function fetchReports(){const {data,error}=await supabase.from("rep
 export async function updateReportStatus(id,status){return supabase.from("reports").update({status}).eq("id",id);}
 export async function banUser(userId,reason){return supabase.from("profiles").update({banned:true,banned_reason:reason}).eq("id",userId);}
 export async function unbanUser(userId){return supabase.from("profiles").update({banned:false,banned_reason:null}).eq("id",userId);}
-export async function saveGamePage(id,page_theme,page_layout){const result=await supabase.from("games").update({page_theme:JSON.parse(JSON.stringify(page_theme)),page_layout:JSON.parse(JSON.stringify(page_layout))}).eq("id",id).select("id,page_theme,page_layout").single();if(result.error)console.error("saveGamePage failed",result.error);return result;}
+export async function saveGamePage(id,page_theme,page_layout,content={}){const patch={page_theme:JSON.parse(JSON.stringify(page_theme)),page_layout:JSON.parse(JSON.stringify(page_layout))};for(const key of ["title","category","tagline","image_url","platform","price","price_breakdown","description","tips","known_issues","secrets_cheats","commands_reference","elements_reference"]){if(Object.prototype.hasOwnProperty.call(content,key))patch[key]=content[key];}const result=await supabase.from("games").update(patch).eq("id",id).select("*").single();if(result.error)console.error("saveGamePage failed",result.error);return result;}
 export async function createManagedUser(payload){const session=await getSession();if(!session)return {data:null,error:new Error("You must be logged in.")};return supabase.functions.invoke("owner-create-user",{body:payload});}
 export async function fetchProfiles(){const {data,error}=await supabase.from("profiles").select("id,username,role,tag,permissions,banned,banned_reason").order("username");if(error)console.error(error);return {data:data||[],error};}
 document.addEventListener("DOMContentLoaded",renderAuthNav);
