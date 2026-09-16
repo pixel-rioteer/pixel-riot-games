@@ -1,6 +1,6 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 const SUPABASE_URL = "https://kklarbwjgyxqhculbluy.supabase.co";
-const SUPABASE_KEY = "sb_publishable_hQILSRKRQCekEr8CDUNXiA_YtxZnYE0";
+const SUPABASE_KEY = "sb_publishable_hQILSRKRQCek4Er8CDUNXiA_YtxZnYE0";
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 export function escapeHtml(value){return String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
 export function starString(rating){const n=Math.round(Number(rating)||0);return "★".repeat(n)+"☆".repeat(Math.max(0,5-n));}
@@ -73,12 +73,36 @@ function imageUploadUI(input){
   fileInput.addEventListener("change",()=>{if(fileInput.files?.[0])upload(fileInput.files[0]);});
   input.addEventListener("paste",e=>{const item=[...(e.clipboardData?.items||[])].find(x=>x.type.startsWith("image/"));if(item){e.preventDefault();upload(item.getAsFile());}});
 }
-function enhanceImageInputs(root=document){
-  root.querySelectorAll?.('[data-field="image_url"], [data-prop="url"]').forEach(imageUploadUI);
-}
-function installImagePasteSupport(){
-  enhanceImageInputs(document);
-  const observer=new MutationObserver(mutations=>mutations.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1)enhanceImageInputs(n);})));observer.observe(document.body,{childList:true,subtree:true});
+function enhanceImageInputs(root=document){root.querySelectorAll?.('[data-field="image_url"], [data-prop="url"]').forEach(imageUploadUI);}
+function installImagePasteSupport(){enhanceImageInputs(document);const observer=new MutationObserver(mutations=>mutations.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1)enhanceImageInputs(n);})));observer.observe(document.body,{childList:true,subtree:true});}
+
+async function installOwnerImageScaler(){
+  if(!document.getElementById("game-main")||location.pathname.includes("admin.html"))return;
+  const slug=new URLSearchParams(location.search).get("slug");
+  if(!slug)return;
+  const profile=await getProfile();
+  if(profile?.role!=="owner")return;
+  const game=await fetchGameBySlug(slug);if(!game)return;
+  const waitForImage=()=>document.querySelector("#game-main img");
+  const apply=()=>{
+    const img=waitForImage();if(!img)return false;
+    const imageSection=Array.isArray(game.page_layout)?game.page_layout.find(x=>x.type==="image"):null;
+    const p=imageSection?.props||{};
+    img.style.width=`${Math.max(10,Math.min(100,Number(p.width)||100))}%`;
+    img.style.maxHeight=`${Math.max(100,Math.min(1600,Number(p.maxHeight)||1600))}px`;
+    img.style.objectFit=p.fit||"contain";
+    img.style.objectPosition=p.position||"center";
+    img.style.margin=`${p.align==="left"?"0 auto 0 0":p.align==="right"?"0 0 0 auto":"0 auto"}`;
+    return true;
+  };
+  const panel=document.createElement("aside");panel.id="owner-image-scaler";panel.innerHTML=`<div class="ois-head"><b>OWNER IMAGE CONTROLS</b><button type="button" data-ois-close>×</button></div><label>Width <output data-w>100%</output><input data-w-range type="range" min="10" max="100" value="100"></label><label>Max height <output data-h>1600px</output><input data-h-range type="range" min="100" max="1600" step="10" value="1600"></label><label>Fit<select data-fit><option value="contain">Contain — show whole image</option><option value="cover">Cover — fill area</option><option value="fill">Fill — stretch</option></select></label><label>Alignment<select data-align><option value="center">Center</option><option value="left">Left</option><option value="right">Right</option></select></label><button type="button" data-apply class="ois-save">Save image size</button><p data-msg></p>`;
+  const css=document.createElement("style");css.textContent="#owner-image-scaler{position:fixed;right:18px;bottom:18px;z-index:9999;width:min(340px,calc(100vw - 36px));padding:16px;border:1px solid rgba(34,211,238,.35);border-radius:18px;background:rgba(5,5,8,.96);backdrop-filter:blur(18px);box-shadow:0 20px 60px rgba(0,0,0,.55);color:#fff;font:14px system-ui}.ois-head{display:flex;justify-content:space-between;align-items:center;color:#22d3ee;margin-bottom:14px}.ois-head button{background:none;border:0;color:#aaa;font-size:22px;cursor:pointer}.ois-head~label{display:block;margin:12px 0;color:#ddd}.ois-head~label output{float:right;color:#22d3ee}.ois-head~label input,.ois-head~label select{display:block;width:100%;margin-top:7px}.ois-head~label select{background:#08080b;color:#fff;border:1px solid #333;border-radius:9px;padding:8px}.ois-save{width:100%;margin-top:8px;padding:10px;border:0;border-radius:10px;background:#22d3ee;color:#001014;font-weight:900;cursor:pointer}#owner-image-scaler [data-msg]{font-size:12px;color:#888;margin:8px 0 0}#owner-image-scaler [data-w-range],#owner-image-scaler [data-h-range]{accent-color:#22d3ee}";document.head.appendChild(css);document.body.appendChild(panel);
+  const imageSection=Array.isArray(game.page_layout)?game.page_layout.find(x=>x.type==="image"):null;const p=imageSection?.props||{};const wr=panel.querySelector("[data-w-range]"),hr=panel.querySelector("[data-h-range]"),fit=panel.querySelector("[data-fit]"),align=panel.querySelector("[data-align]");wr.value=Number(p.width)||100;hr.value=Number(p.maxHeight)||1600;fit.value=p.fit||"contain";align.value=p.align||"center";panel.querySelector("[data-w]").value=`${wr.value}%`;panel.querySelector("[data-h]").value=`${hr.value}px`;
+  const preview=()=>{if(!imageSection)return;imageSection.props=imageSection.props||{};imageSection.props.width=Number(wr.value);imageSection.props.maxHeight=Number(hr.value);imageSection.props.fit=fit.value;imageSection.props.align=align.value;imageSection.props.position="center";panel.querySelector("[data-w]").value=`${wr.value}%`;panel.querySelector("[data-h]").value=`${hr.value}px`;apply();};wr.oninput=hr.oninput=fit.onchange=align.onchange=preview;
+  panel.querySelector("[data-apply]").onclick=async()=>{const b=panel.querySelector("[data-apply]"),msg=panel.querySelector("[data-msg]");b.disabled=true;b.textContent="Saving…";const result=await saveGamePage(game.id,game.page_theme||{},game.page_layout||[]);if(result.error){msg.textContent=result.error.message;b.disabled=false;b.textContent="Save image size";return}Object.assign(game,result.data);msg.textContent="Saved ✓";b.disabled=false;b.textContent="Save image size";setTimeout(()=>msg.textContent="",1600)};
+  panel.querySelector("[data-ois-close]").onclick=()=>panel.remove();
+  const observer=new MutationObserver(()=>apply());observer.observe(document.getElementById("game-main"),{childList:true,subtree:true});
+  const timer=setInterval(()=>{if(apply())clearInterval(timer)},250);setTimeout(()=>clearInterval(timer),10000);
 }
 
-document.addEventListener("DOMContentLoaded",()=>{renderAuthNav();installImagePasteSupport();});
+document.addEventListener("DOMContentLoaded",()=>{renderAuthNav();installImagePasteSupport();installOwnerImageScaler();});
