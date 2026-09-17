@@ -1,75 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script type="module" src="/assets/pixel-riot-lock.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up | PIXEL-RIOT</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="min-h-screen bg-black text-white font-sans overflow-x-hidden">
-  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="home/" class="text-2xl font-black text-cyan-400">PIXEL-RIOT</a>
-      <div data-auth-nav-slot class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300"></div>
-    </div>
-  </nav>
-
-  <main class="max-w-md mx-auto px-6 py-24">
-    <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Join the hub</p>
-    <h1 class="text-5xl font-black mt-4">Create Account</h1>
-    <p class="text-gray-400 mt-4">Sign up to leave reviews, save favorites, and climb the leaderboards.</p>
-
-    <form id="signup-form" class="mt-10 space-y-5 rounded-3xl border border-white/10 bg-zinc-950 p-8">
-      <div>
-        <label class="text-sm text-gray-400" for="username">Username</label>
-        <input id="username" name="username" minlength="3" required
-          class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
-      </div>
-      <div>
-        <label class="text-sm text-gray-400" for="email">Email</label>
-        <input id="email" name="email" type="email" required
-          class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
-      </div>
-      <div>
-        <label class="text-sm text-gray-400" for="password">Password</label>
-        <input id="password" name="password" type="password" minlength="6" required
-          class="mt-1 w-full rounded-2xl bg-black border border-white/10 p-4 outline-none focus:border-cyan-400" />
-      </div>
-      <button type="submit" class="w-full rounded-2xl bg-cyan-500 text-black font-black py-4 hover:bg-cyan-400 transition-all">
-        Create Account
-      </button>
-      <p class="text-sm text-gray-400 text-center" id="signup-message"></p>
-      <p class="text-sm text-gray-400 text-center">Already have an account? <a href="login.html" class="text-cyan-400 hover:underline">Log in</a></p>
-    </form>
-  </main>
-
-  <script type="module">
-    import { signUp } from "/assets/pixel-riot-app.js";
-
-    const form = document.getElementById("signup-form");
-    const message = document.getElementById("signup-message");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      message.textContent = "Creating your account...";
-      const username = form.username.value.trim();
-      const email = form.email.value.trim();
-      const password = form.password.value;
-
-      const { data, error } = await signUp({ email, password, username });
-      if (error) {
-        message.textContent = error.message;
-        return;
-      }
-
-      if (data.session) {
-        window.location.href = "account.html";
-      } else {
-        message.textContent = "Account created! Check your email to confirm, then log in.";
-        form.reset();
-      }
-    });
-  </script>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Accounts | PIXEL-RIOT</title><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="style.css"></head>
+<body class="min-h-screen bg-black text-white font-sans">
+<main class="max-w-md mx-auto px-6 py-24 text-center">
+<p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">PIXEL-RIOT</p>
+<h1 class="text-5xl font-black mt-4">Accounts are invite-only</h1>
+<p class="text-gray-400 mt-5">Public account creation is disabled. Your PIXEL-RIOT owner must create and authorize your account before you can enter.</p>
+<a href="login.html" class="inline-block mt-8 rounded-2xl bg-cyan-500 text-black font-black py-4 px-7 hover:bg-cyan-400">Log In</a>
+</main>
 </body>
 </html>
