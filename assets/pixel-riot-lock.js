@@ -9,5 +9,5 @@ if (!publicPaths.includes(path)) {
 }
 
 if (path === "/game.html") {
-  import("/assets/pixel-riot-page-renderer.js?v=20260917-1");
+  import("/assets/pixel-riot-page-renderer.js?v=20260917-2");
 }
