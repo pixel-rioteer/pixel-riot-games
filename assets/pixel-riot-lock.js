@@ -1,18 +1,9 @@
-// PIXEL-RIOT private-site gate. Only accounts explicitly marked authorized may enter protected pages.
-import { getSession, supabase, rootPath } from "/assets/pixel-riot-app.js?v=20260916-3";
+// PIXEL-RIOT protected-page gate. Only explicitly authorized accounts may enter protected pages.
+import { requireAuthorized } from "/assets/pixel-riot-app.js?v=20260917-2";
 
-const path = window.location.pathname.replace(/\\/+$/, "") || "/";
-const publicPaths = ["/", "/login.html", "/signup.html"];
+const path = window.location.pathname.replace(/\/+$/, "") || "/";
+const publicPaths = ["/", "/login.html"];
+
 if (!publicPaths.includes(path)) {
-  const session = await getSession();
-  let profile = null;
-  if (session) {
-    const { data } = await supabase.from("profiles").select("role, authorized").eq("id", session.user.id).maybeSingle();
-    profile = data;
-  }
-  if (!profile || (profile.role !== "owner" && profile.authorized !== true)) {
-    window.location.replace(rootPath("login.html?unauthorized=1"));
-  } else if (path === "/admin.html") {
-    const s=document.createElement("script");s.type="module";s.src="/assets/pixel-riot-access-ui.js?v=20260916-1";document.head.appendChild(s);
-  }
+  await requireAuthorized("/login.html");
 }
