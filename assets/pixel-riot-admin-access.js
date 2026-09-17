@@ -1,5 +1,6 @@
 import { supabase, getSession, escapeHtml } from "/assets/pixel-riot-app.js?v=20260917-3";
 import "/assets/pixel-riot-page-builder-plus.js?v=20260917-1";
+import "/assets/pixel-riot-builder-drag-fix.js?v=20260917-1";
 const P=[["Games","manage_games_view","View games"],["Games","manage_games_create","Create games"],["Games","manage_games_edit","Edit game content"],["Games","manage_games_delete","Delete games"],["Games","manage_page_builder","Use page builder"],["Requests","manage_requests_view","View requests"],["Requests","manage_requests_dismiss","Dismiss requests"],["Reports","manage_reports_view","View reports"],["Reports","manage_reports_resolve","Resolve reports"],["Reports","manage_reports_dismiss","Dismiss reports"],["Reports","manage_reports_ban","Ban users"],["Accounts","manage_users_view","View accounts"],["Accounts","manage_users_create","Create accounts"],["Accounts","manage_users_edit","Edit accounts"],["Accounts","manage_users_permissions","Change permissions"],["Accounts","manage_users_ban","Ban/unban"],["Accounts","manage_users_tags","Manage tags"]];
 const TAGS=["Developer","Moderator","Reviewer","Partner","Tester","VIP","Community Team","Member"];
 async function games(){return (await supabase.from("games").select("id,title,slug").order("sort_order",{ascending:true})).data||[]}
