@@ -24,12 +24,12 @@
     <section class="mt-12"><h2 class="text-3xl font-black">Your Reviews</h2><div id="reviews-list" class="mt-6 space-y-4"></div></section>
   </main>
   <script type="module">
-    import { requireAuth, getProfile, blockIfBanned, supabase, fetchFavoriteGameIds, escapeHtml, starString, removeFavorite, rankBadge } from "/assets/pixel-riot-app.js?v=20260916-3";
+    import { requireAuth, getProfile, blockIfBanned, supabase, fetchFavoriteGameIds, escapeHtml, starString, removeFavorite } from "/assets/pixel-riot-app.js?v=20260920-1";
     const session = await requireAuth();
     if (session && !(await blockIfBanned())) {
       const profile = await getProfile();
       document.getElementById("account-heading").textContent = `Welcome, ${profile.username}`;
-      document.getElementById("account-info").innerHTML = `<div class="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-4 text-cyan-200 flex flex-wrap items-center justify-between gap-3"><span>Signed in as <strong>${escapeHtml(profile.username)}</strong>${rankBadge(profile.role)} (${escapeHtml(profile.email)})</span><a href="settings.html" class="text-cyan-300 hover:underline text-sm font-semibold">Account Settings →</a></div>`;
+      document.getElementById("account-info").innerHTML = `<div class="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-4 text-cyan-200 flex flex-wrap items-center justify-between gap-3"><span>Signed in as <strong>${escapeHtml(profile.username)}</strong> (${escapeHtml(profile.email)})</span><a href="settings.html" class="text-cyan-300 hover:underline text-sm font-semibold">Account Settings →</a></div>`;
       const gameIds = await fetchFavoriteGameIds(session.user.id), favContainer = document.getElementById("favorites-list");
       if (!gameIds.length) favContainer.innerHTML = '<p class="text-gray-400">No favorites yet. Go add some from the games page!</p>'; else {
         const { data: games } = await supabase.from("games").select("*").in("id", gameIds);
